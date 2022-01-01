@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html STYLE="width: 170px; height: 235px">
+<head>
+<title>Named Color Selector</title>
+<STYLE>
+td   		    {font-family: MS Shell Dlg; font-size: 9pt;width:9;height:9;cursor: hand;}
+body			{font-family: MS Shell Dlg; font-size: 9pt;background: threedface; border: 0;}
+</STYLE>
+<script type="text/javascript">
+/*var Text = '';
+var sColors = new Array("000000 black","000080 navy","00008B darkblue","191970 midnightblue","0000CD mediumblue","0000FF blue","1E90FF dodgerblue","778899 lightslategrey","6495ED cornflowerblue","00BFBF deepskyblue","87CEEB skyblue","87CEFA lightskyblue","ADD8E6 lightblue","B0E0E6 powderblue","008080 teal","3CB371 mediumseagreen","2E8B57 seagreen","8FBC8F darkseagreen","006400 darkgreen","008000 green","228B22 forestgreen","32CD32 limegreen","00FF00 lime","7CFC00 lawngreen","7FFF00 chartreuse","ADFF2F greenyellow","90EE90 lightgreen","98FB98 palegreen","008B8B darkcyan","20B2AA lightseagreen","00CED1 darkturquoise","2F4F4F darkslategray","556B2F darkolivegreen","6B8E23 olivedrab","808000 olive","9ACD32 yellowgreen","B8860B darkgoldenrod","DAA520 goldenrod","BDB76B darkkhaki","F0E68C khaki","EEE8AA palegoldenrod","FFF8DC cornsilk","483D8B darkslateblue","4682B4 steelblue","4169E1 royalblue","87CEEB skyblue","B0C4DE lightsteelblue","48D1CC mediumturquoise","00FFFF aqua","00FFFF cyan","40E0D0 turquoise","7FFFD4 aquamarine","AFEEEE paleturquoise","E0FFFF lightcyan","F5FFFA mintcream","F0F8FF aliceblue","4B0082 indigo","9400D3 darkviolet","8A2BE2 blueviolet","9932CC darkorchid","BA55D3 mediumorchid","9370DB mediumpurple","DA70D6 orchid","DB7093 palevioletred","DDA0DD plum","EE82EE violet","FF00FF fuchsia","FF00FF magenta","FF69B4 hotpink","FFC0CB pink","800080 purple","8B008B darkmagenta","C71585 mediumvioletred","DC143C crimson","FF1493 deeppink","FFB6C1 lightpink","FFDAB9 peachpuff","FF7F50 coral","F08080 lightcoral","FA8072 salmon","FFA07A lightsalmon","FFDEAD navajowhite","FFE4C4 bisque","FFEBCD blanchedalmond","800000 maroon","8B0000 darkred","B22222 firebrick","A52A2A brown","CD5C5C indianred","E9967A darksalmon","F4A460 sandybrown","DEB887 burlywood","CD853F peru","D2B48C tan","F5DEB3 wheat","FFE4E1 mistyrose","FFE4B5 moccasin","FFEFD5 papayawhip","8B4513 saddlebrown","A0522D sienna","D2691E chocolate","FF8C00 darkorange","FFA500 orange","FFFF00 yellow","FAFAD2 lightgoldenrodyellow","FFFACD lemonchiffon","F5F5DC beige","FFFFE0 lightyellow","FDF5E6 oldlace","FAF0E6 linen","FFF0F5 lavenderblush","FAEBD7 antiquewhite","FF0000 red","FF4500 orangered","FF6347 tomato","6A5ACD slateblue","7B68EE mediumslateblue","696969 dimgray","808080 gray","708090 slategray","5F9EA0 cadetblue","A9A9A9 darkgray","C0C0C0 silver","D3D3D3 lightgrey","DCDCDC gainsboro","E6E6FA lavender","BC8F8F rosybrown","D8BFD8 thistle","66CDAA mediumaquamarine","00FF7F springgreen","00FA9A mediumspringgreen","F0FFF0 honeydew","F5F5F5 whitesmoke","FFFAFA snow","FFFAF0 floralwhite","FFF5EE seashell","F0FFFF azure","FFFFF0 ivory","F8F8FF ghostwhite","FFFFFF white");
+
+    i = 0;
+    while (i < 140) {
+    Text += '<tr>';
+    	for (j = 0; j < 14; j++) {
+         	sHex = sColors[i].substring(0,6);
+         	sName = sColors[i].substring(7,50);
+         	Text += '<td bgcolor="'+ sName +'" title="'+ sName+'- #' +sHex+'"onClick=Set(\''+ sName +'\') onMouseOver=View(\''+ sName +'\')></td>';
+	  		 	i++;
+		      		}
+		      			Text += '</tr>';
+			      			}
+*/
+function stoperror(){
+return true
+} 
+window.onerror=stoperror; 
+
+function _CloseOnEsc() {
+  if (event.keyCode == 27) { window.close(); return; }
+}
+
+function Init() {                                                       // run on page load
+  document.body.onkeypress = _CloseOnEsc;
+  color = window.dialogArguments;
+  color = color || 'Black';
+  View(color);                                                          // set default color
+}
+
+function View(color) {                  // preview color
+  if ( color == '' ){
+     document.all.ColorPreview.style.backgroundColor = '';
+     document.all.NamedColor.value = '';
+  } else {
+     document.all.ColorPreview.style.backgroundColor = color;
+     document.all.NamedColor.value =color;
+  }
+}
+
+function Set(string) {                   // select color
+  if (string == '') {
+     window.returnvalue = '';
+  } else {
+     color =string;
+     View(color);                          // show selected color
+     window.returnValue = color;           // set return value
+  }
+  window.close();                       // close dialog
+} 
+</script>
+</head>
+<body onload="Init()">
+<form method=get onSubmit="Set(document.all.NamedColor.value); return false;">
+<P>
+<table align="center" border="0" cellspacing="0" cellpadding="4" width="150" bgcolor="buttonface"><tr>
+<td valign=center><div style="background-color: #000000; padding: 1; height: 21px; width: 50px"><div id="ColorPreview" style="height: 100%; width: 100%"></div></div></td>
+<td valign=center><input type="text" name="NamedColor" value="" size=13 STYLE="border:1px; border-color: #909090; border-style: solid; font-size: 12px"></td>
+</tr></table>
+&nbsp;Named Colors Pallete
+<table align="center" bgcolor="#000000" width="153" cellspacing="0" cellpadding="0"><tr><td>
+<table align="center" width="153" border="0" cellspacing="1" cellpadding="0" onmouseout="Init()">
+<tr>
+<td bgcolor="black" title="black- #000000" onClick="Set('black');" onMouseOver="View('black');"></td>
+<td bgcolor="navy" title="navy- #000080" onClick="Set('navy');" onMouseOver="View('navy');"></td>
+<td bgcolor="darkblue" title="darkblue- #00008B" onClick="Set('darkblue');" onMouseOver="View('darkblue');"></td>
+<td bgcolor="midnightblue" title="midnightblue- #191970" onClick="Set('midnightblue');" onMouseOver="View('midnightblue');"></td>
+<td bgcolor="mediumblue" title="mediumblue- #0000CD" onClick="Set('mediumblue');" onMouseOver="View('mediumblue');"></td>
+<td bgcolor="blue" title="blue- #0000FF" onClick="Set('blue');" onMouseOver="View('blue');"></td>
+<td bgcolor="dodgerblue" title="dodgerblue- #1E90FF" onClick="Set('dodgerblue');" onMouseOver="View('dodgerblue');"></td>
+<td bgcolor="lightslategrey" title="lightslategrey- #778899" onClick="Set('lightslategrey');" onMouseOver="View('lightslategrey');"></td>
+<td bgcolor="cornflowerblue" title="cornflowerblue- #6495ED" onClick="Set('cornflowerblue');" onMouseOver="View('cornflowerblue');"></td>
+<td bgcolor="deepskyblue" title="deepskyblue- #00BFBF" onClick="Set('deepskyblue');" onMouseOver="View('deepskyblue');"></td>
+<td bgcolor="skyblue" title="skyblue- #87CEEB" onClick="Set('skyblue');" onMouseOver="View('skyblue');"></td>
+<td bgcolor="lightskyblue" title="lightskyblue- #87CEFA" onClick="Set('lightskyblue');" onMouseOver="View('lightskyblue');"></td>
+<td bgcolor="lightblue" title="lightblue- #ADD8E6" onClick="Set('lightblue');" onMouseOver="View('lightblue');"></td>
+<td bgcolor="powderblue" title="powderblue- #B0E0E6" onClick="Set('powderblue');" onMouseOver="View('powderblue');"></td>
+</tr><tr>
+<td bgcolor="teal" title="teal- #008080" onClick="Set('teal');" onMouseOver="View('teal');"></td>
+<td bgcolor="mediumseagreen" title="mediumseagreen- #3CB371" onClick="Set('mediumseagreen');" onMouseOver="View('mediumseagreen');"></td>
+<td bgcolor="seagreen" title="seagreen- #2E8B57" onClick="Set('seagreen');" onMouseOver="View('seagreen');"></td>
+<td bgcolor="darkseagreen" title="darkseagreen- #8FBC8F" onClick="Set('darkseagreen');" onMouseOver="View('darkseagreen');"></td>
+<td bgcolor="darkgreen" title="darkgreen- #006400" onClick="Set('darkgreen');" onMouseOver="View('darkgreen');"></td>
+<td bgcolor="green" title="green- #008000" onClick="Set('green');" onMouseOver="View('green');"></td>
+<td bgcolor="forestgreen" title="forestgreen- #228B22" onClick="Set('forestgreen');" onMouseOver="View('forestgreen');"></td>
+<td bgcolor="limegreen" title="limegreen- #32CD32" onClick="Set('limegreen');" onMouseOver="View('limegreen');"></td>
+<td bgcolor="lime" title="lime- #00FF00" onClick="Set('lime');" onMouseOver="View('lime');"></td>
+<td bgcolor="lawngreen" title="lawngreen- #7CFC00" onClick="Set('lawngreen');" onMouseOver="View('lawngreen');"></td>
+<td bgcolor="chartreuse" title="chartreuse- #7FFF00" onClick="Set('chartreuse');" onMouseOver="View('chartreuse');"></td>
+<td bgcolor="greenyellow" title="greenyellow- #ADFF2F" onClick="Set('greenyellow');" onMouseOver="View('greenyellow');"></td>
+<td bgcolor="lightgreen" title="lightgreen- #90EE90" onClick="Set('lightgreen');" onMouseOver="View('lightgreen');"></td>
+<td bgcolor="palegreen" title="palegreen- #98FB98" onClick="Set('palegreen');" onMouseOver="View('palegreen');"></td>
+</tr><tr>
+<td bgcolor="darkcyan" title="darkcyan- #008B8B" onClick="Set('darkcyan');" onMouseOver="View('darkcyan');"></td>
+<td bgcolor="lightseagreen" title="lightseagreen- #20B2AA" onClick="Set('lightseagreen');" onMouseOver="View('lightseagreen');"></td>
+<td bgcolor="darkturquoise" title="darkturquoise- #00CED1" onClick="Set('darkturquoise');" onMouseOver="View('darkturquoise');"></td>
+<td bgcolor="darkslategray" title="darkslategray- #2F4F4F" onClick="Set('darkslategray');" onMouseOver="View('darkslategray');"></td>
+<td bgcolor="darkolivegreen" title="darkolivegreen- #556B2F" onClick="Set('darkolivegreen');" onMouseOver="View('darkolivegreen');"></td>
+<td bgcolor="olivedrab" title="olivedrab- #6B8E23" onClick="Set('olivedrab');" onMouseOver="View('olivedrab');"></td>
+<td bgcolor="olive" title="olive- #808000" onClick="Set('olive');" onMouseOver="View('olive');"></td>
+<td bgcolor="yellowgreen" title="yellowgreen- #9ACD32" onClick="Set('yellowgreen');" onMouseOver="View('yellowgreen');"></td>
+<td bgcolor="darkgoldenrod" title="darkgoldenrod- #B8860B" onClick="Set('darkgoldenrod');" onMouseOver="View('darkgoldenrod');"></td>
+<td bgcolor="goldenrod" title="goldenrod- #DAA520" onClick="Set('goldenrod');" onMouseOver="View('goldenrod');"></td>
+<td bgcolor="darkkhaki" title="darkkhaki- #BDB76B" onClick="Set('darkkhaki');" onMouseOver="View('darkkhaki');"></td>
+<td bgcolor="khaki" title="khaki- #F0E68C" onClick="Set('khaki');" onMouseOver="View('khaki');"></td>
+<td bgcolor="palegoldenrod" title="palegoldenrod- #EEE8AA" onClick="Set('palegoldenrod');" onMouseOver="View('palegoldenrod');"></td>
+<td bgcolor="cornsilk" title="cornsilk- #FFF8DC" onClick="Set('cornsilk');" onMouseOver="View('cornsilk');"></td>
+</tr><tr>
+<td bgcolor="darkslateblue" title="darkslateblue- #483D8B" onClick="Set('darkslateblue');" onMouseOver="View('darkslateblue');"></td>
+<td bgcolor="steelblue" title="steelblue- #4682B4" onClick="Set('steelblue');" onMouseOver="View('steelblue');"></td>
+<td bgcolor="royalblue" title="royalblue- #4169E1" onClick="Set('royalblue');" onMouseOver="View('royalblue');"></td>
+<td bgcolor="skyblue" title="skyblue- #87CEEB" onClick="Set('skyblue');" onMouseOver="View('skyblue');"></td>
+<td bgcolor="lightsteelblue" title="lightsteelblue- #B0C4DE" onClick="Set('lightsteelblue');" onMouseOver="View('lightsteelblue');"></td>
+<td bgcolor="mediumturquoise" title="mediumturquoise- #48D1CC" onClick="Set('mediumturquoise');" onMouseOver="View('mediumturquoise');"></td>
+<td bgcolor="aqua" title="aqua- #00FFFF" onClick="Set('aqua');" onMouseOver="View('aqua');"></td>
+<td bgcolor="cyan" title="cyan- #00FFFF" onClick="Set('cyan');" onMouseOver="View('cyan');"></td>
+<td bgcolor="turquoise" title="turquoise- #40E0D0" onClick="Set('turquoise');" onMouseOver="View('turquoise');"></td>
+<td bgcolor="aquamarine" title="aquamarine- #7FFFD4" onClick="Set('aquamarine');" onMouseOver="View('aquamarine');"></td>
+<td bgcolor="paleturquoise" title="paleturquoise- #AFEEEE" onClick="Set('paleturquoise');" onMouseOver="View('paleturquoise');"></td>
+<td bgcolor="lightcyan" title="lightcyan- #E0FFFF" onClick="Set('lightcyan');" onMouseOver="View('lightcyan');"></td>
+<td bgcolor="mintcream" title="mintcream- #F5FFFA" onClick="Set('mintcream');" onMouseOver="View('mintcream');"></td>
+<td bgcolor="aliceblue" title="aliceblue- #F0F8FF" onClick="Set('aliceblue');" onMouseOver="View('aliceblue');"></td>
+</tr><tr>
+<td bgcolor="indigo" title="indigo- #4B0082" onClick="Set('indigo');" onMouseOver="View('indigo');"></td>
+<td bgcolor="darkviolet" title="darkviolet- #9400D3" onClick="Set('darkviolet');" onMouseOver="View('darkviolet');"></td>
+<td bgcolor="blueviolet" title="blueviolet- #8A2BE2" onClick="Set('blueviolet');" onMouseOver="View('blueviolet');"></td>
+<td bgcolor="darkorchid" title="darkorchid- #9932CC" onClick="Set('darkorchid');" onMouseOver="View('darkorchid');"></td>
+<td bgcolor="mediumorchid" title="mediumorchid- #BA55D3" onClick="Set('mediumorchid');" onMouseOver="View('mediumorchid');"></td>
+<td bgcolor="mediumpurple" title="mediumpurple- #9370DB" onClick="Set('mediumpurple');" onMouseOver="View('mediumpurple');"></td>
+<td bgcolor="orchid" title="orchid- #DA70D6" onClick="Set('orchid');" onMouseOver="View('orchid');"></td>
+<td bgcolor="palevioletred" title="palevioletred- #DB7093" onClick="Set('palevioletred');" onMouseOver="View('palevioletred');"></td>
+<td bgcolor="plum" title="plum- #DDA0DD" onClick="Set('plum');" onMouseOver="View('plum');"></td>
+<td bgcolor="violet" title="violet- #EE82EE" onClick="Set('violet');" onMouseOver="View('violet');"></td>
+<td bgcolor="fuchsia" title="fuchsia- #FF00FF" onClick="Set('fuchsia');" onMouseOver="View('fuchsia');"></td>
+<td bgcolor="magenta" title="magenta- #FF00FF" onClick="Set('magenta');" onMouseOver="View('magenta');"></td>
+<td bgcolor="hotpink" title="hotpink- #FF69B4" onClick="Set('hotpink');" onMouseOver="View('hotpink');"></td>
+<td bgcolor="pink" title="pink- #FFC0CB" onClick="Set('pink');" onMouseOver="View('pink');"></td>
+</tr><tr>
+<td bgcolor="purple" title="purple- #800080" onClick="Set('purple');" onMouseOver="View('purple');"></td>
+<td bgcolor="darkmagenta" title="darkmagenta- #8B008B" onClick="Set('darkmagenta');" onMouseOver="View('darkmagenta');"></td>
+<td bgcolor="mediumvioletred" title="mediumvioletred- #C71585" onClick="Set('mediumvioletred');" onMouseOver="View('mediumvioletred');"></td>
+<td bgcolor="crimson" title="crimson- #DC143C" onClick="Set('crimson');" onMouseOver="View('crimson');"></td>
+<td bgcolor="deeppink" title="deeppink- #FF1493" onClick="Set('deeppink');" onMouseOver="View('deeppink');"></td>
+<td bgcolor="lightpink" title="lightpink- #FFB6C1" onClick="Set('lightpink');" onMouseOver="View('lightpink');"></td>
+<td bgcolor="peachpuff" title="peachpuff- #FFDAB9" onClick="Set('peachpuff');" onMouseOver="View('peachpuff');"></td>
+<td bgcolor="coral" title="coral- #FF7F50" onClick="Set('coral');" onMouseOver="View('coral');"></td>
+<td bgcolor="lightcoral" title="lightcoral- #F08080" onClick="Set('lightcoral');" onMouseOver="View('lightcoral');"></td>
+<td bgcolor="salmon" title="salmon- #FA8072" onClick="Set('salmon');" onMouseOver="View('salmon');"></td>
+<td bgcolor="lightsalmon" title="lightsalmon- #FFA07A" onClick="Set('lightsalmon');" onMouseOver="View('lightsalmon');"></td>
+<td bgcolor="navajowhite" title="navajowhite- #FFDEAD" onClick="Set('navajowhite');" onMouseOver="View('navajowhite');"></td>
+<td bgcolor="bisque" title="bisque- #FFE4C4" onClick="Set('bisque');" onMouseOver="View('bisque');"></td>
+<td bgcolor="blanchedalmond" title="blanchedalmond- #FFEBCD" onClick="Set('blanchedalmond');" onMouseOver="View('blanchedalmond');"></td>
+</tr><tr>
+<td bgcolor="maroon" title="maroon- #800000" onClick="Set('maroon');" onMouseOver="View('maroon');"></td>
+<td bgcolor="darkred" title="darkred- #8B0000" onClick="Set('darkred');" onMouseOver="View('darkred');"></td>
+<td bgcolor="firebrick" title="firebrick- #B22222" onClick="Set('firebrick');" onMouseOver="View('firebrick');"></td>
+<td bgcolor="brown" title="brown- #A52A2A" onClick="Set('brown');" onMouseOver="View('brown');"></td>
+<td bgcolor="indianred" title="indianred- #CD5C5C" onClick="Set('indianred');" onMouseOver="View('indianred');"></td>
+<td bgcolor="darksalmon" title="darksalmon- #E9967A" onClick="Set('darksalmon');" onMouseOver="View('darksalmon');"></td>
+<td bgcolor="sandybrown" title="sandybrown- #F4A460" onClick="Set('sandybrown');" onMouseOver="View('sandybrown');"></td>
+<td bgcolor="burlywood" title="burlywood- #DEB887" onClick="Set('burlywood');" onMouseOver="View('burlywood');"></td>
+<td bgcolor="peru" title="peru- #CD853F" onClick="Set('peru');" onMouseOver="View('peru');"></td>
+<td bgcolor="tan" title="tan- #D2B48C" onClick="Set('tan');" onMouseOver="View('tan');"></td>
+<td bgcolor="wheat" title="wheat- #F5DEB3" onClick="Set('wheat');" onMouseOver="View('wheat');"></td>
+<td bgcolor="mistyrose" title="mistyrose- #FFE4E1" onClick="Set('mistyrose');" onMouseOver="View('mistyrose');"></td>
+<td bgcolor="moccasin" title="moccasin- #FFE4B5" onClick="Set('moccasin');" onMouseOver="View('moccasin');"></td>
+<td bgcolor="papayawhip" title="papayawhip- #FFEFD5" onClick="Set('papayawhip');" onMouseOver="View('papayawhip');"></td>
+</tr><tr>
+<td bgcolor="saddlebrown" title="saddlebrown- #8B4513" onClick="Set('saddlebrown');" onMouseOver="View('saddlebrown');"></td>
+<td bgcolor="sienna" title="sienna- #A0522D" onClick="Set('sienna');" onMouseOver="View('sienna');"></td>
+<td bgcolor="chocolate" title="chocolate- #D2691E" onClick="Set('chocolate');" onMouseOver="View('chocolate');"></td>
+<td bgcolor="darkorange" title="darkorange- #FF8C00" onClick="Set('darkorange');" onMouseOver="View('darkorange');"></td>
+<td bgcolor="orange" title="orange- #FFA500" onClick="Set('orange');" onMouseOver="View('orange');"></td>
+<td bgcolor="yellow" title="yellow- #FFFF00" onClick="Set('yellow');" onMouseOver="View('yellow');"></td>
+<td bgcolor="lightgoldenrodyellow" title="lightgoldenrodyellow- #FAFAD2" onClick="Set('lightgoldenrodyellow');" onMouseOver="View('lightgoldenrodyellow');"></td>
+<td bgcolor="lemonchiffon" title="lemonchiffon- #FFFACD" onClick="Set('lemonchiffon');" onMouseOver="View('lemonchiffon');"></td>
+<td bgcolor="beige" title="beige- #F5F5DC" onClick="Set('beige');" onMouseOver="View('beige');"></td>
+<td bgcolor="lightyellow" title="lightyellow- #FFFFE0" onClick="Set('lightyellow');" onMouseOver="View('lightyellow');"></td>
+<td bgcolor="oldlace" title="oldlace- #FDF5E6" onClick="Set('oldlace');" onMouseOver="View('oldlace');"></td>
+<td bgcolor="linen" title="linen- #FAF0E6" onClick="Set('linen');" onMouseOver="View('linen');"></td>
+<td bgcolor="lavenderblush" title="lavenderblush- #FFF0F5" onClick="Set('lavenderblush');" onMouseOver="View('lavenderblush');"></td>
+<td bgcolor="antiquewhite" title="antiquewhite- #FAEBD7" onClick="Set('antiquewhite');" onMouseOver="View('antiquewhite');"></td>
+</tr><tr>
+<td bgcolor="red" title="red- #FF0000" onClick="Set('red');" onMouseOver="View('red');"></td>
+<td bgcolor="orangered" title="orangered- #FF4500" onClick="Set('orangered');" onMouseOver="View('orangered');"></td>
+<td bgcolor="tomato" title="tomato- #FF6347" onClick="Set('tomato');" onMouseOver="View('tomato');"></td>
+<td bgcolor="slateblue" title="slateblue- #6A5ACD" onClick="Set('slateblue');" onMouseOver="View('slateblue');"></td>
+<td bgcolor="mediumslateblue" title="mediumslateblue- #7B68EE" onClick="Set('mediumslateblue');" onMouseOver="View('mediumslateblue');"></td>
+<td bgcolor="dimgray" title="dimgray- #696969" onClick="Set('dimgray');" onMouseOver="View('dimgray');"></td>
+<td bgcolor="gray" title="gray- #808080" onClick="Set('gray');" onMouseOver="View('gray');"></td>
+<td bgcolor="slategray" title="slategray- #708090" onClick="Set('slategray');" onMouseOver="View('slategray');"></td>
+<td bgcolor="cadetblue" title="cadetblue- #5F9EA0" onClick="Set('cadetblue');" onMouseOver="View('cadetblue');"></td>
+<td bgcolor="darkgray" title="darkgray- #A9A9A9" onClick="Set('darkgray');" onMouseOver="View('darkgray');"></td>
+<td bgcolor="silver" title="silver- #C0C0C0" onClick="Set('silver');" onMouseOver="View('silver');"></td>
+<td bgcolor="lightgrey" title="lightgrey- #D3D3D3" onClick="Set('lightgrey');" onMouseOver="View('lightgrey');"></td>
+<td bgcolor="gainsboro" title="gainsboro- #DCDCDC" onClick="Set('gainsboro');" onMouseOver="View('gainsboro');"></td>
+<td bgcolor="lavender" title="lavender- #E6E6FA" onClick="Set('lavender');" onMouseOver="View('lavender');"></td>
+</tr><tr>
+<td bgcolor="rosybrown" title="rosybrown- #BC8F8F" onClick="Set('rosybrown');" onMouseOver="View('rosybrown');"></td>
+<td bgcolor="thistle" title="thistle- #D8BFD8" onClick="Set('thistle');" onMouseOver="View('thistle');"></td>
+<td bgcolor="mediumaquamarine" title="mediumaquamarine- #66CDAA" onClick="Set('mediumaquamarine');" onMouseOver="View('mediumaquamarine');"></td>
+<td bgcolor="springgreen" title="springgreen- #00FF7F" onClick="Set('springgreen');" onMouseOver="View('springgreen');"></td>
+<td bgcolor="mediumspringgreen" title="mediumspringgreen- #00FA9A" onClick="Set('mediumspringgreen');" onMouseOver="View('mediumspringgreen');"></td>
+<td bgcolor="honeydew" title="honeydew- #F0FFF0" onClick="Set('honeydew');" onMouseOver="View('honeydew');"></td>
+<td bgcolor="whitesmoke" title="whitesmoke- #F5F5F5" onClick="Set('whitesmoke');" onMouseOver="View('whitesmoke');"></td>
+<td bgcolor="snow" title="snow- #FFFAFA" onClick="Set('snow');" onMouseOver="View('snow');"></td>
+<td bgcolor="floralwhite" title="floralwhite- #FFFAF0" onClick="Set('floralwhite');" onMouseOver="View('floralwhite');"></td>
+<td bgcolor="seashell" title="seashell- #FFF5EE" onClick="Set('seashell');" onMouseOver="View('seashell');"></td>
+<td bgcolor="azure" title="azure- #F0FFFF" onClick="Set('azure');" onMouseOver="View('azure');"></td>
+<td bgcolor="ivory" title="ivory- #FFFFF0" onClick="Set('ivory');" onMouseOver="View('ivory');"></td>
+<td bgcolor="ghostwhite" title="ghostwhite- #F8F8FF" onClick="Set('ghostwhite');" onMouseOver="View('ghostwhite');"></td>
+<td bgcolor="white" title="white- #FFFFFF" onClick="Set('white');" onMouseOver="View('white');"></td>
+</tr>
+<!-- <script>document.write(Text);</script> -->
+</table>
+</td></tr></table>
+<P>&nbsp;Windows 16 Colors Pallete
+<table align="center" bgcolor="#000000" width="153" cellspacing="0" cellpadding="0"><tr><td>
+<table align="center" width="153" border="0" cellspacing="1" cellpadding="0" onmouseout="Init();">
+<tr>
+<td bgcolor="black" title="black- #000000" onClick="Set('black');" onMouseOver="View('black');"></td>
+<td bgcolor="maroon" title="maroon- #800000" onClick="Set('maroon');" onMouseOver="View('maroon');"></td>
+<td bgcolor="green" title="green- #008000" onClick="Set('green');" onMouseOver="View('green');"></td>
+<td bgcolor="olive" title="olive- #808000" onClick="Set('olive');" onMouseOver="View('olive');"></td>
+<td bgcolor="navy" title="navy- #000080" onClick="Set('navy');" onMouseOver="View('navy');"></td>
+<td bgcolor="purple" title="purple- #800080" onClick="Set('black');" onMouseOver="View('purple');"></td>
+<td bgcolor="teal" title="teal- #008080" onClick="Set('teal');" onMouseOver="View('teal');"></td>
+<td bgcolor="silver" title="silver- #C0C0C0" onClick="Set('silver');" onMouseOver="View('silver');"></td>
+</tr>
+<tr>
+<td bgcolor="gray" title="gray- #808080" onClick="Set('gray');" onMouseOver="View('gray');"></td>
+<td bgcolor="red" title="red- #FF0000" onClick="Set('red');" onMouseOver="View('red');"></td>
+<td bgcolor="lime" title="lime- #00FF00" onClick="Set('lime');" onMouseOver="View('lime');"></td>
+<td bgcolor="yellow" title="yellow- #FFFF00" onClick="Set('yellow');" onMouseOver="View('yellow');"></td>
+<td bgcolor="blue" title="blue- #0000FF" onClick="Set('blue');" onMouseOver="View('blue');"></td>
+<td bgcolor="fuchsia" title="fuchsia- #FF00FF" onClick="Set('fuchsia');" onMouseOver="View('fuchsia');"></td>
+<td bgcolor="aqua" title="aqua- #00FFFF" onClick="Set('aqua');" onMouseOver="View('aqua');"></td>
+<td bgcolor="white" title="white- #FFFFFF" onClick="Set('white');" onMouseOver="View('white');"></td>
+</tr>
+</table>
+</tr></table>
+</form>
+</body>
+</html>

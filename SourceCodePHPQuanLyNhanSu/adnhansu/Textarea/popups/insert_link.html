@@ -1,0 +1,380 @@
+<html style="Width: 450px; Height: 320px;">
+<head>
+<title>Hyperlink Editor</title>
+
+<style type="text/css">
+<!--
+
+td { font-family: arial;
+     font-size: 8pt; }
+select { font-family: arial;
+         font-size: 8pt; }
+input	 { font-family: arial;
+         font-size: 8pt; }
+
+-->
+</style>
+<SCRIPT>
+	function Init() { 
+	var editdoc = window.dialogArguments;
+	var href_value, IsImage;
+	var GetElem = editdoc.selection.createRange();
+			if (editdoc.selection.type == "Control") {
+			if (GetElem.item(0).tagName.toLowerCase() == "img") {
+				IsImage = GetElem.item(0);
+				ElemParent = GetElem.item(0).parentElement;
+					if (ElemParent.tagName.toLowerCase() == "a") {
+					href_value = ElemParent;
+					}
+						} 
+						else return;
+							} 
+		else {href_value = getHyperLink(GetElem.parentElement());}
+
+//Convert Control Selection  to Text Selection
+		if (IsImage){
+			elmSelectedImage = GetElem.item(0);
+			TxtRange = editdoc.body.createTextRange();
+			TxtRange.moveToElementText(elmSelectedImage);
+			TxtRange.select();
+		}
+
+		if(href_value){
+			var protocol = href_value.protocol;
+			var target = href_value.target;
+			var hostname = href_value.hostname;
+			var pathname = href_value.pathname;
+			var Myanchor = href_value.hash;
+			var MyQueryString = href_value.search;
+			var Myclass = href_value.className;
+			var Name = href_value.name;
+			var Style = href_value.style.cssText;
+			var Title = href_value.title;
+			var ID = href_value.id;
+			var DIR = href_value.dir;
+			//Selects protocol
+			for (i=0; i<document.set.protocol.length; i++) {
+				if (document.set.protocol.options[i].value.search(protocol) != -1) {
+					document.set.protocol.options[i].selected = true;
+					}
+					}
+//Selects target
+			if (target != '') {
+				for (i=0; i<document.set.target.length; i++) {
+					if (document.set.target.options[i].value.search(target) != -1) {
+					document.set.target.options[i].selected = true;
+					}
+						}
+							}
+//Selects ID
+			if (ID != '') {
+				for (i=0; i<document.set.id.length; i++) {
+					if (document.set.id.options[i].value.search(id) != -1) {
+					document.set.id.options[i].selected = true;
+					}
+						}
+							}
+			
+			if (hostname !=""){
+			document.set.link_value.value = href_value;
+			}
+			else{
+			pathname=pathname.replace(/\\/,"/");
+			document.set.link_value.value = href_value.protocol+"//"+pathname+MyQueryString+Myanchor;
+			}
+			document.set.link_value.value;
+			var re= editdoc.URL;
+			document.set.link_value.value = document.set.link_value.value.replace(re, '')
+			DocumentLevel = editdoc.URL.substring(0,editdoc.URL.lastIndexOf("/")+1);
+			
+			var re = new RegExp (DocumentLevel, 'gi') ;
+			document.set.link_value.value = document.set.link_value.value.replace(re, '') ;
+			
+			LB1 = DocumentLevel.substring(0,DocumentLevel.lastIndexOf("/"));
+			LB1 = LB1.substring(0,LB1.lastIndexOf("/")+1);
+			var re = new RegExp (LB1, 'gi') ;
+			document.set.link_value.value = document.set.link_value.value.replace(re, '../') ;
+			
+			LB2 = LB1.substring(0,LB1.lastIndexOf("/"));
+			LB2 = LB2.substring(0,LB2.lastIndexOf("/")+1);
+			var re = new RegExp (LB2, 'gi') ;
+			document.set.link_value.value = document.set.link_value.value.replace(re, '../../') ;
+
+			//LB3 = LB2.substring(0,LB2.lastIndexOf("/"));
+			//LB3 = LB3.substring(0,LB3.lastIndexOf("/")+1);
+			//var re = new RegExp (LB3, 'gi') ;
+			//document.set.link_value.value = document.set.link_value.value.replace(re, '../../../') ;
+			
+			//LB4 = LB3.substring(0,LB3.lastIndexOf("/")+1);
+			//var re = new RegExp (LB4, 'gi') ;
+			//document.set.link_value.value = document.set.link_value.value.replace(re, '../../../../');
+			
+			document.set.link_value.value = document.set.link_value.value.replace(/fullscreen\.html\?(.*?)\#(.*?)/gi, '#$2'); 
+			document.set.link_value.value = document.set.link_value.value.replace(/fullscreen\.html/gi, '');
+	
+			document.set.SelTxt.value = href_value.innerHTML;
+			document.set.Myclass.value = Myclass;
+			document.set.name.value = Name;
+			document.set.Mystyle.value = Style;
+			document.set.title.value = Title;
+			document.set.id.value = ID;
+			document.set.DirText.value = DIR;
+			
+		if(href_value.onclick !== null){
+			document.set.eventText.value ='OnClick'; 
+			OnClickValue=href_value.onclick;
+			OnClickValue=OnClickValue.toString();
+			OnClickValue=OnClickValue.replace(/\n/g,'');
+			OnClickValue=OnClickValue.replace(/function anonymous\(\)\{/,'');
+			OnClickValue=OnClickValue.replace(/\}/,'');
+			document.set.eventTextValue.value=OnClickValue;
+		}
+		if(href_value.onmouseover !== null){
+			document.set.eventText.value ='OnMouseOver'; 
+			OnMouseOverValue=href_value.onmouseover;
+			OnMouseOverValue=OnMouseOverValue.toString();
+			OnMouseOverValue=OnMouseOverValue.replace(/\n/g,'');
+			OnMouseOverValue=OnMouseOverValue.replace(/function anonymous\(\)\{/,'');
+			OnMouseOverValue=OnMouseOverValue.replace(/\}/,'');
+			document.set.eventTextValue.value=OnMouseOverValue;
+		}
+		if(href_value.onmouseout !== null){
+			document.set.eventText.value ='OnMouseOut'; 
+			OnMouseOutValue=href_value.onmouseout;
+			OnMouseOutValue=OnMouseOutValue.toString();
+			OnMouseOutValue=OnMouseOutValue.replace(/\n/g,'');
+			OnMouseOutValue=OnMouseOutValue.replace(/function anonymous\(\)\{/,'');
+			OnMouseOutValue=OnMouseOutValue.replace(/\}/,'');
+			document.set.eventTextValue.value=OnMouseOutValue;
+		}
+				return;
+		}
+		
+  if(GetElem.htmlText==null){
+  document.set.SelTxt.value = TxtRange.htmlText;
+   }
+  else {
+  document.set.SelTxt.value = GetElem.htmlText;
+    }
+		}  
+		
+	
+	function getHyperLink(GetElem) {
+		while (GetElem.tagName != "BODY") {
+			if (GetElem.tagName == "A") {return GetElem;}
+				GetElem = GetElem.parentElement;
+				}
+				return null;    
+					}
+
+function UpdateProtocol() {
+  var selectedItem      	= document.set.protocol.selectedIndex;
+  var selectedItemValue 	= document.set.protocol.options[selectedItem].value;
+  var selectedItemText  	= document.set.protocol.options[selectedItem].text;
+  var inputtedText			  = document.set.link_value.value;
+
+  var protocol = inputtedText.split(":");
+  
+  if (protocol[1]) {
+     var datum = protocol[1].replace(/^\/\//, "");
+	 datum = datum.replace(/\\/, "");
+	 datum = datum.replace(/^\//, "");
+	  
+	  }
+else // nothing after or no : 	
+	{ 		
+	if(inputtedText.indexOf(":") > 0) // like mailto: 			
+	var datum = "";          	         	
+	else // no colon         	
+	{         		
+	var datum = protocol[0]; 	   		
+	datum = protocol[0].replace(/^\/\/\//, "//"); 	   	
+	} 
+	}       		         
+	document.set.link_value.value = selectedItemValue + datum;
+
+}			
+
+function returnSelected(){
+var editdoc = window.dialogArguments;
+var GetElem = editdoc.selection.createRange();
+		
+		var text = escape( "<a href=" );
+			if (document.set.link_value.value != "") {
+			text = text + escape( document.set.link_value.value );
+			}
+		else{alert("You must specify a Link");return false;}	
+		if (document.set.target.value != "") {
+		        text = text + escape( " TARGET=" );
+				text += '"'
+				text = text + escape( document.set.target.value );
+				text += '"'
+				}
+				
+		if (document.set.name.value != "") {
+		        text = text + escape( " NAME=" );
+				text += '"'
+				text = text + escape( document.set.name.value );
+				text += '"'
+				}		
+		if (document.set.Myclass.value != "") {
+		        text = text + escape( " CLASS=" );
+				text += '"'
+				text = text + escape( document.set.Myclass.value );
+				text += '"'
+				}
+		if (document.set.eventText.value  !== "" && document.set.eventTextValue.value !== "" ){
+				text = text + escape( document.set.eventText.value);
+					   text += '="'
+				text = text + escape( document.set.eventTextValue.value );
+					   text += '"'
+				}		
+		if (document.set.Mystyle.value != "") {
+		        text = text + escape( " STYLE=" );
+				text += '"'
+				text = text + escape( document.set.Mystyle.value );
+				text += '"'
+				}	
+				
+		if (document.set.title.value != "") {
+		        text = text + escape( " TITLE=" );
+				text += '"'
+				text = text + escape( document.set.title.value );
+				text += '"'
+				}	
+				text += ' DIR="' +document.set.DirText.value+ '"'
+				
+				if (document.set.id.value != "") {
+		        text = text + escape( " ID=" );
+				text += '"'
+				text = text + escape( document.set.id.value );
+				text += '"'
+				}										
+			 	text = text + escape( ">" );
+			if (document.set.SelTxt.value !=""){
+				text = text + escape( document.set.SelTxt.value );
+			}
+			else {
+				text = text + escape( document.set.link_value.value);
+			}
+				text = text + escape( "</a>" );
+		
+				GetElem.execCommand('RemoveFormat');
+				GetElem.execCommand('unlink');
+				GetElem.execCommand('Delete');
+				window.returnValue = text;
+				window.close();                   // close dialog
+		
+		}
+		
+</SCRIPT>
+<SCRIPT defer>
+
+function _KeyStrokes() {
+	if (event.keyCode == 27) { window.close(); return; }
+	if (window.event.keyCode == 13){returnSelected();} 
+	if (event.srcElement.name!='eventTextValue'){
+	if (window.event.keyCode == 34||window.event.keyCode == 39){alert("Quotes are not allowed in attributes.\nThey area allowed for Events only");return false;}
+}
+}
+ document.body.onkeypress = _KeyStrokes;
+ </SCRIPT>
+</head>
+<body style="background: threedface; color: windowtext;" topmargin=5 leftmargin=0" onload='Init();'>
+<center>
+<form method="post" name="set">
+<input type="hidden" value="" name="SelTxt">
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr><td align="center">
+<fieldset align="center" width="290"><legend align="left">Hyperlink Information</legend>
+<table border="0" cellspacing="4" align="center">
+<tr><td align="right" nowrap="nowrap" width="40">Type: </td>
+<td nowrap="nowrap">
+<select name="protocol"onchange="UpdateProtocol();">
+	<option value="http://" selected>http
+	<option value="https://">https
+	<option value="mailto:">mailto
+	<option value="file://">file
+	<option value="ftp://">ftp
+	<option value="gopher://">gopher
+	<option value="news:">news
+	<option value="telnet:">telnet
+	<option value="wias:">wias
+	<option value="javascript:">javascript
+	<option value="">Other
+</select>
+</td>
+<td align="right">Target:</td>
+<td>
+<select name="target">
+	<option value="" selected>None
+	<option value="_self">Same Page
+	<option value="_blank">New Window
+	<option value="_parent">Parent Frame
+	<option value="_top">Top Frame
+</select>
+</td>
+</tr>
+<tr>
+<td align="right" nowrap="nowrap">Link:</td>
+<td nowrap="nowrap" colspan="3"><input type="text" name="link_value" value="http://" size="50">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr><td align="right" nowrap="nowrap">Name:</td>
+<td nowrap="nowrap" colspan="3"><input type="text" name="name" value="" size="50">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="right" nowrap="nowrap">Class:</td>
+<td nowrap="nowrap" colspan="3"><input type="text" name="Myclass" value="" size="50">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="right" nowrap="nowrap">Style:</td>
+<td nowrap="nowrap" colspan="3"><input type="text" name="Mystyle" value="" size="50">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="right" nowrap="nowrap">Title:</td>
+<td nowrap="nowrap" colspan="3"><input type="text" name="title" value="" size="50">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr><td align="right" nowrap="nowrap" width="40">ID: </td>
+<td nowrap="nowrap">
+<input type="text" name="id" value="" size="20">
+</td>
+<td align="right">Direction:</td>
+<td>
+<select name='DirText'>
+<option value="" selected>
+<option value="ltr">Left to Right
+<option value="rtl">Right To Left
+</select>
+</td>
+</tr>
+<tr>
+<td align="right">Events:</td>
+<td nowrap="nowrap">
+<select name=eventText>
+<option value="" selected>
+<option value="OnClick">OnClick
+<option value="OnMouseOver">OnMouseOver
+<option value="OnMouseOut">OnMouseOut
+</select>
+</td>
+<td nowrap="nowrap" colspan="3" align="right"><input type="text" name="eventTextValue" value="" size="22">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</table>
+</fieldset>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<table cellpadding="3">
+<tr><td align="center">
+<input type="button" value=" OK " onClick="returnSelected();">
+<!-- <input type="button" value=" Reset " onClick="Init();"> -->
+<input type="button" value="Cancel" onClick="window.close()">
+</td></tr></table>
+</form>
+</td>
+</tr>
+</table>
+</center>
+</body>
+</html>

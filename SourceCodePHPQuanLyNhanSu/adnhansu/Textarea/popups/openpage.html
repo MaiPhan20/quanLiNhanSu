@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html style='width:350px; Height: 140px;'>
+<head>
+<title>Open File</title>
+<style> html, body, button, div, input, select{ font-family: MS Shell Dlg; font-size: 8pt;}; </style>
+<SCRIPT DEFER>
+<!--
+function _CloseOnEsc() {if (event.keyCode == 27) { window.close(); return; }}
+document.body.onkeypress = _CloseOnEsc;
+//-->
+</SCRIPT>
+<SCRIPT>
+function OpenFile( fileName, fileTypes ) {
+if (!fileName) return;
+dots = fileName.split(".")
+
+//get the part AFTER the LAST period.
+fileType = "." + dots[dots.length-1];
+return (fileTypes.join(".").indexOf(fileType) != -1) ?
+GetEverything() : alert("Error\n Allowed file types are:\n\n" + (fileTypes.join(" *.")) + "\n\nTo insert images or Word Documents, click on the proper button.");
+}
+
+function GetEverything(){
+   var file = unescape( document.myform.filepath.value )
+   var fso, f;
+   var ForReading = 1, ForWriting = 2;
+   fso = new ActiveXObject("Scripting.FileSystemObject");
+   f = fso.OpenTextFile(file, ForReading);
+   document.write("<FORM METHOD=post NAME=set ID=set><TEXTAREA NAME=filecontent>"+f.ReadAll()+"</TEXTAREA>");
+    document.write("</FORM>");
+	var text = escape( document.set.filecontent.value );
+	window.returnValue = text;
+	window.close();
+}//}
+</SCRIPT>
+
+</head>
+
+<body style="background: threedface; color: windowtext;" margin: 30px; >
+<BR>&nbsp;&nbsp;<IMG SRC="../images/openfold.gif" ALT="" WIDTH="17" HEIGHT="17" BORDER="0" ALIGN="absmiddle"> Open A Webfile From Your Local Disk
+<DIV ALIGN="center">
+<FORM NAME="myform">
+<INPUT TYPE="file" NAME="filepath" SIZE="30"><BR>
+<P><INPUT TYPE="button" NAME="Open" VALUE="Open" onclick="OpenFile(myform.filepath.value, ['','inc', 'htm', 'txt', 'html']);">&nbsp;&nbsp;<INPUT TYPE="button" NAME="Cancel" VALUE="Cancel" onclick="window.close();">
+</FORM>
+</DIV>
+</body>
+</html>

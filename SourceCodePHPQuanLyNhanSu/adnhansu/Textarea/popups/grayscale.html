@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html STYLE="width: 170px; height: 225px">
+<head>
+<title>Grayscale Color Selector</title>
+<STYLE>
+td   		    {font-family: MS Shell Dlg; font-size: 9pt;width:9;height:9;cursor: hand;}
+body			{background: threedface; border: 0; margin: 5px;}
+</STYLE>
+<script language="JavaScript"><!--
+/*var Text = '';
+var grayarray= new Array("000000","010101","020202","030303","040404","050505","060606","070707","080808","090909","0A0A0A","0B0B0B","0C0C0C","0D0D0D","0E0E0E","0F0F0F","101010","111111","121212","131313","141414","151515","161616","171717","181818","191919","1A1A1A","1B1B1B","1C1C1C","1D1D1D","1E1E1E","1F1F1F","202020","212121","222222","232323","242424","252525","262626","272727","282828","292929","2A2A2A","2B2B2B","2C2C2C","2D2D2D","2E2E2E","2F2F2F","303030","313131","323232","333333","343434","353535","363636","373737","383838","393939","3A3A3A","3B3B3B","3C3C3C","3D3D3D","3E3E3E","3F3F3F","404040","414141","424242","434343","444444","454545","464646","474747","484848","494949","4A4A4A","4B4B4B","4C4C4C","4D4D4D","4E4E4E","4F4F4F","505050","515151","525252","535353","545454","555555","565656","575757","585858","595959","5A5A5A","5B5B5B","5C5C5C","5D5D5D","5E5E5E","5F5F5F","606060","616161","626262","636363","646464","656565","666666","676767","686868","696969","6A6A6A","6B6B6B","6C6C6C","6D6D6D","6E6E6E","6F6F6F","707070","717171","727272","737373","747474","757575","767676","777777","787878","797979","7A7A7A","7B7B7B","7C7C7C","7D7D7D","7E7E7E","7F7F7F","808080","818181","828282","838383","848484","858585","868686","878787","888888","898989","8A8A8A","8B8B8B","8C8C8C","8D8D8D","8E8E8E","8F8F8F","909090","919191","929292","939393","949494","959595","969696","979797","989898","999999","9A9A9A","9B9B9B","9C9C9C","9D9D9D","9E9E9E","9F9F9F","A0A0A0","A1A1A1","A2A2A2","A3A3A3","A4A4A4","A5A5A5","A6A6A6","A7A7A7","A8A8A8","A9A9A9","AAAAAA","ABABAB","ACACAC","ADADAD","AEAEAE","AFAFAF","B0B0B0","B1B1B1","B2B2B2","B3B3B3","B4B4B4","B5B5B5","B6B6B6","B7B7B7","B8B8B8","B9B9B9","BABABA","BBBBBB","BCBCBC","BDBDBD","BEBEBE","BFBFBF","C0C0C0","C1C1C1","C2C2C2","C3C3C3","C4C4C4","C5C5C5","C6C6C6","C7C7C7","C8C8C8","C9C9C9","CACACA","CBCBCB","CCCCCC","CDCDCD","CECECE","CFCFCF","D0D0D0","D1D1D1","D2D2D2","D3D3D3","D4D4D4","D5D5D5","D6D6D6","D7D7D7","D8D8D8","D9D9D9","DADADA","DBDBDB","DCDCDC","DDDDDD","DEDEDE","DFDFDF","E0E0E0","E1E1E1","E2E2E2","E3E3E3","E4E4E4","E5E5E5","E6E6E6","E7E7E7","E8E8E8","E9E9E9","EAEAEA","EBEBEB","ECECEC","EDEDED","EEEEEE","EFEFEF","F0F0F0","F1F1F1","F2F2F2","F3F3F3","F4F4F4","F5F5F5","F6F6F6","F7F7F7","F8F8F8","F9F9F9","FAFAFA","FBFBFB","FCFCFC","FDFDFD","FEFEFE","FFFFFF");
+
+i = 0;
+    while (i < 256) {
+    Text += '<tr>';
+    	for (j = 0; j < 16; j++) {
+
+Text += '<td bgcolor="'+ grayarray[i] +'" title="'+ grayarray[i] +'"onClick=Set(\''+ grayarray[i] +'\') onMouseOver=View(\''+ grayarray[i] +'\')></td>';
+	  		 	i++;
+		      		}
+		      			Text += '</tr>';
+			      			}
+*/					
+function _CloseOnEsc() {
+  if (event.keyCode == 27) { window.close(); return; }
+}
+
+function Init() {                                                       // run on page load
+  document.body.onkeypress = _CloseOnEsc;
+  color = window.dialogArguments;
+  color = ValidateColor(color) || '000000';
+  View(color);                                                          // set default color
+}
+
+function View(color) {                  // preview color
+  if ( color == '' ){
+     document.all.ColorPreview.style.backgroundColor = '';
+     document.all.ColorHex.value = '';
+  } else {
+     document.all.ColorPreview.style.backgroundColor = '#' + color;
+     document.all.ColorHex.value = '#' + color;
+  }
+}
+
+function Set(string) {                   // select color
+  if (string == '') {
+     window.returnvalue = '';
+  } else {
+     color = ValidateColor(string);
+     View(color);                          // show selected color
+     window.returnValue = color;           // set return value
+  }
+  window.close();                       // close dialog
+}
+
+function ValidateColor(string) {                // return valid color code
+  string = string || '';
+  string = string + "";
+  string = string.toUpperCase();
+  chars = '0123456789ABCDEF';
+  out   = '';
+
+  for (i=0; i<string.length; i++) {             // remove invalid color chars
+    schar = string.charAt(i);
+    if (chars.indexOf(schar) != -1) { out += schar; }
+  }
+    
+  if (out.length != 6) { return null; }            // check length
+  return out;
+} 
+
+//--></script>
+</head>
+<body onload="Init()">
+<form method=get onSubmit="Set(document.all.ColorHex.value); return false;">
+<table align=center border="0" cellspacing="0" cellpadding="3" width="160"><tr>
+<td valign=center><div style="background-color: #000000; padding: 1; height: 21px; width: 49px"><div id="ColorPreview" style="height: 100%; width: 100%"></div></td>
+<td valign=center><input type="text" name="ColorHex" value="" size=15 STYLE="border:1px; border-color: #909090; border-style: solid; font-size: 12px"></td>
+</tr></table>
+<table align=center cellspacing="1" cellpadding="0" border="0" onmouseout="Init()">
+<tr>
+<td bgcolor="000000" title="000000"onClick=Set('000000') onMouseOver=View('000000')></td>
+<td bgcolor="010101" title="010101"onClick=Set('010101') onMouseOver=View('010101')></td>
+<td bgcolor="020202" title="020202"onClick=Set('020202') onMouseOver=View('020202')></td>
+<td bgcolor="030303" title="030303"onClick=Set('030303') onMouseOver=View('030303')></td>
+<td bgcolor="040404" title="040404"onClick=Set('040404') onMouseOver=View('040404')></td>
+<td bgcolor="050505" title="050505"onClick=Set('050505') onMouseOver=View('050505')></td>
+<td bgcolor="060606" title="060606"onClick=Set('060606') onMouseOver=View('060606')></td>
+<td bgcolor="070707" title="070707"onClick=Set('070707') onMouseOver=View('070707')></td>
+<td bgcolor="080808" title="080808"onClick=Set('080808') onMouseOver=View('080808')></td>
+<td bgcolor="090909" title="090909"onClick=Set('090909') onMouseOver=View('090909')></td>
+<td bgcolor="0A0A0A" title="0A0A0A"onClick=Set('0A0A0A') onMouseOver=View('0A0A0A')></td>
+<td bgcolor="0B0B0B" title="0B0B0B"onClick=Set('0B0B0B') onMouseOver=View('0B0B0B')></td>
+<td bgcolor="0C0C0C" title="0C0C0C"onClick=Set('0C0C0C') onMouseOver=View('0C0C0C')></td>
+<td bgcolor="0D0D0D" title="0D0D0D"onClick=Set('0D0D0D') onMouseOver=View('0D0D0D')></td>
+<td bgcolor="0E0E0E" title="0E0E0E"onClick=Set('0E0E0E') onMouseOver=View('0E0E0E')></td>
+<td bgcolor="0F0F0F" title="0F0F0F"onClick=Set('0F0F0F') onMouseOver=View('0F0F0F')></td>
+</tr><tr>
+<td bgcolor="101010" title="101010"onClick=Set('101010') onMouseOver=View('101010')></td>
+<td bgcolor="111111" title="111111"onClick=Set('111111') onMouseOver=View('111111')></td>
+<td bgcolor="121212" title="121212"onClick=Set('121212') onMouseOver=View('121212')></td>
+<td bgcolor="131313" title="131313"onClick=Set('131313') onMouseOver=View('131313')></td>
+<td bgcolor="141414" title="141414"onClick=Set('141414') onMouseOver=View('141414')></td>
+<td bgcolor="151515" title="151515"onClick=Set('151515') onMouseOver=View('151515')></td>
+<td bgcolor="161616" title="161616"onClick=Set('161616') onMouseOver=View('161616')></td>
+<td bgcolor="171717" title="171717"onClick=Set('171717') onMouseOver=View('171717')></td>
+<td bgcolor="181818" title="181818"onClick=Set('181818') onMouseOver=View('181818')></td>
+<td bgcolor="191919" title="191919"onClick=Set('191919') onMouseOver=View('191919')></td>
+<td bgcolor="1A1A1A" title="1A1A1A"onClick=Set('1A1A1A') onMouseOver=View('1A1A1A')></td>
+<td bgcolor="1B1B1B" title="1B1B1B"onClick=Set('1B1B1B') onMouseOver=View('1B1B1B')></td>
+<td bgcolor="1C1C1C" title="1C1C1C"onClick=Set('1C1C1C') onMouseOver=View('1C1C1C')></td>
+<td bgcolor="1D1D1D" title="1D1D1D"onClick=Set('1D1D1D') onMouseOver=View('1D1D1D')></td>
+<td bgcolor="1E1E1E" title="1E1E1E"onClick=Set('1E1E1E') onMouseOver=View('1E1E1E')></td>
+<td bgcolor="1F1F1F" title="1F1F1F"onClick=Set('1F1F1F') onMouseOver=View('1F1F1F')></td>
+</tr><tr>
+<td bgcolor="202020" title="202020"onClick=Set('202020') onMouseOver=View('202020')></td>
+<td bgcolor="212121" title="212121"onClick=Set('212121') onMouseOver=View('212121')></td>
+<td bgcolor="222222" title="222222"onClick=Set('222222') onMouseOver=View('222222')></td>
+<td bgcolor="232323" title="232323"onClick=Set('232323') onMouseOver=View('232323')></td>
+<td bgcolor="242424" title="242424"onClick=Set('242424') onMouseOver=View('242424')></td>
+<td bgcolor="252525" title="252525"onClick=Set('252525') onMouseOver=View('252525')></td>
+<td bgcolor="262626" title="262626"onClick=Set('262626') onMouseOver=View('262626')></td>
+<td bgcolor="272727" title="272727"onClick=Set('272727') onMouseOver=View('272727')></td>
+<td bgcolor="282828" title="282828"onClick=Set('282828') onMouseOver=View('282828')></td>
+<td bgcolor="292929" title="292929"onClick=Set('292929') onMouseOver=View('292929')></td>
+<td bgcolor="2A2A2A" title="2A2A2A"onClick=Set('2A2A2A') onMouseOver=View('2A2A2A')></td>
+<td bgcolor="2B2B2B" title="2B2B2B"onClick=Set('2B2B2B') onMouseOver=View('2B2B2B')></td>
+<td bgcolor="2C2C2C" title="2C2C2C"onClick=Set('2C2C2C') onMouseOver=View('2C2C2C')></td>
+<td bgcolor="2D2D2D" title="2D2D2D"onClick=Set('2D2D2D') onMouseOver=View('2D2D2D')></td>
+<td bgcolor="2E2E2E" title="2E2E2E"onClick=Set('2E2E2E') onMouseOver=View('2E2E2E')></td>
+<td bgcolor="2F2F2F" title="2F2F2F"onClick=Set('2F2F2F') onMouseOver=View('2F2F2F')></td>
+</tr><tr>
+<td bgcolor="303030" title="303030"onClick=Set('303030') onMouseOver=View('303030')></td>
+<td bgcolor="313131" title="313131"onClick=Set('313131') onMouseOver=View('313131')></td>
+<td bgcolor="323232" title="323232"onClick=Set('323232') onMouseOver=View('323232')></td>
+<td bgcolor="333333" title="333333"onClick=Set('333333') onMouseOver=View('333333')></td>
+<td bgcolor="343434" title="343434"onClick=Set('343434') onMouseOver=View('343434')></td>
+<td bgcolor="353535" title="353535"onClick=Set('353535') onMouseOver=View('353535')></td>
+<td bgcolor="363636" title="363636"onClick=Set('363636') onMouseOver=View('363636')></td>
+<td bgcolor="373737" title="373737"onClick=Set('373737') onMouseOver=View('373737')></td>
+<td bgcolor="383838" title="383838"onClick=Set('383838') onMouseOver=View('383838')></td>
+<td bgcolor="393939" title="393939"onClick=Set('393939') onMouseOver=View('393939')></td>
+<td bgcolor="3A3A3A" title="3A3A3A"onClick=Set('3A3A3A') onMouseOver=View('3A3A3A')></td>
+<td bgcolor="3B3B3B" title="3B3B3B"onClick=Set('3B3B3B') onMouseOver=View('3B3B3B')></td>
+<td bgcolor="3C3C3C" title="3C3C3C"onClick=Set('3C3C3C') onMouseOver=View('3C3C3C')></td>
+<td bgcolor="3D3D3D" title="3D3D3D"onClick=Set('3D3D3D') onMouseOver=View('3D3D3D')></td>
+<td bgcolor="3E3E3E" title="3E3E3E"onClick=Set('3E3E3E') onMouseOver=View('3E3E3E')></td>
+<td bgcolor="3F3F3F" title="3F3F3F"onClick=Set('3F3F3F') onMouseOver=View('3F3F3F')></td>
+</tr><tr>
+<td bgcolor="404040" title="404040"onClick=Set('404040') onMouseOver=View('404040')></td>
+<td bgcolor="414141" title="414141"onClick=Set('414141') onMouseOver=View('414141')></td>
+<td bgcolor="424242" title="424242"onClick=Set('424242') onMouseOver=View('424242')></td>
+<td bgcolor="434343" title="434343"onClick=Set('434343') onMouseOver=View('434343')></td>
+<td bgcolor="444444" title="444444"onClick=Set('444444') onMouseOver=View('444444')></td>
+<td bgcolor="454545" title="454545"onClick=Set('454545') onMouseOver=View('454545')></td>
+<td bgcolor="464646" title="464646"onClick=Set('464646') onMouseOver=View('464646')></td>
+<td bgcolor="474747" title="474747"onClick=Set('474747') onMouseOver=View('474747')></td>
+<td bgcolor="484848" title="484848"onClick=Set('484848') onMouseOver=View('484848')></td>
+<td bgcolor="494949" title="494949"onClick=Set('494949') onMouseOver=View('494949')></td>
+<td bgcolor="4A4A4A" title="4A4A4A"onClick=Set('4A4A4A') onMouseOver=View('4A4A4A')></td>
+<td bgcolor="4B4B4B" title="4B4B4B"onClick=Set('4B4B4B') onMouseOver=View('4B4B4B')></td>
+<td bgcolor="4C4C4C" title="4C4C4C"onClick=Set('4C4C4C') onMouseOver=View('4C4C4C')></td>
+<td bgcolor="4D4D4D" title="4D4D4D"onClick=Set('4D4D4D') onMouseOver=View('4D4D4D')></td>
+<td bgcolor="4E4E4E" title="4E4E4E"onClick=Set('4E4E4E') onMouseOver=View('4E4E4E')></td>
+<td bgcolor="4F4F4F" title="4F4F4F"onClick=Set('4F4F4F') onMouseOver=View('4F4F4F')></td>
+</tr><tr>
+<td bgcolor="505050" title="505050"onClick=Set('505050') onMouseOver=View('505050')></td>
+<td bgcolor="515151" title="515151"onClick=Set('515151') onMouseOver=View('515151')></td>
+<td bgcolor="525252" title="525252"onClick=Set('525252') onMouseOver=View('525252')></td>
+<td bgcolor="535353" title="535353"onClick=Set('535353') onMouseOver=View('535353')></td>
+<td bgcolor="545454" title="545454"onClick=Set('545454') onMouseOver=View('545454')></td>
+<td bgcolor="555555" title="555555"onClick=Set('555555') onMouseOver=View('555555')></td>
+<td bgcolor="565656" title="565656"onClick=Set('565656') onMouseOver=View('565656')></td>
+<td bgcolor="575757" title="575757"onClick=Set('575757') onMouseOver=View('575757')></td>
+<td bgcolor="585858" title="585858"onClick=Set('585858') onMouseOver=View('585858')></td>
+<td bgcolor="595959" title="595959"onClick=Set('595959') onMouseOver=View('595959')></td>
+<td bgcolor="5A5A5A" title="5A5A5A"onClick=Set('5A5A5A') onMouseOver=View('5A5A5A')></td>
+<td bgcolor="5B5B5B" title="5B5B5B"onClick=Set('5B5B5B') onMouseOver=View('5B5B5B')></td>
+<td bgcolor="5C5C5C" title="5C5C5C"onClick=Set('5C5C5C') onMouseOver=View('5C5C5C')></td>
+<td bgcolor="5D5D5D" title="5D5D5D"onClick=Set('5D5D5D') onMouseOver=View('5D5D5D')></td>
+<td bgcolor="5E5E5E" title="5E5E5E"onClick=Set('5E5E5E') onMouseOver=View('5E5E5E')></td>
+<td bgcolor="5F5F5F" title="5F5F5F"onClick=Set('5F5F5F') onMouseOver=View('5F5F5F')></td>
+</tr><tr>
+<td bgcolor="606060" title="606060"onClick=Set('606060') onMouseOver=View('606060')></td>
+<td bgcolor="616161" title="616161"onClick=Set('616161') onMouseOver=View('616161')></td>
+<td bgcolor="626262" title="626262"onClick=Set('626262') onMouseOver=View('626262')></td>
+<td bgcolor="636363" title="636363"onClick=Set('636363') onMouseOver=View('636363')></td>
+<td bgcolor="646464" title="646464"onClick=Set('646464') onMouseOver=View('646464')></td>
+<td bgcolor="656565" title="656565"onClick=Set('656565') onMouseOver=View('656565')></td>
+<td bgcolor="666666" title="666666"onClick=Set('666666') onMouseOver=View('666666')></td>
+<td bgcolor="676767" title="676767"onClick=Set('676767') onMouseOver=View('676767')></td>
+<td bgcolor="686868" title="686868"onClick=Set('686868') onMouseOver=View('686868')></td>
+<td bgcolor="696969" title="696969"onClick=Set('696969') onMouseOver=View('696969')></td>
+<td bgcolor="6A6A6A" title="6A6A6A"onClick=Set('6A6A6A') onMouseOver=View('6A6A6A')></td>
+<td bgcolor="6B6B6B" title="6B6B6B"onClick=Set('6B6B6B') onMouseOver=View('6B6B6B')></td>
+<td bgcolor="6C6C6C" title="6C6C6C"onClick=Set('6C6C6C') onMouseOver=View('6C6C6C')></td>
+<td bgcolor="6D6D6D" title="6D6D6D"onClick=Set('6D6D6D') onMouseOver=View('6D6D6D')></td>
+<td bgcolor="6E6E6E" title="6E6E6E"onClick=Set('6E6E6E') onMouseOver=View('6E6E6E')></td>
+<td bgcolor="6F6F6F" title="6F6F6F"onClick=Set('6F6F6F') onMouseOver=View('6F6F6F')></td>
+</tr><tr>
+<td bgcolor="707070" title="707070"onClick=Set('707070') onMouseOver=View('707070')></td>
+<td bgcolor="717171" title="717171"onClick=Set('717171') onMouseOver=View('717171')></td>
+<td bgcolor="727272" title="727272"onClick=Set('727272') onMouseOver=View('727272')></td>
+<td bgcolor="737373" title="737373"onClick=Set('737373') onMouseOver=View('737373')></td>
+<td bgcolor="747474" title="747474"onClick=Set('747474') onMouseOver=View('747474')></td>
+<td bgcolor="757575" title="757575"onClick=Set('757575') onMouseOver=View('757575')></td>
+<td bgcolor="767676" title="767676"onClick=Set('767676') onMouseOver=View('767676')></td>
+<td bgcolor="777777" title="777777"onClick=Set('777777') onMouseOver=View('777777')></td>
+<td bgcolor="787878" title="787878"onClick=Set('787878') onMouseOver=View('787878')></td>
+<td bgcolor="797979" title="797979"onClick=Set('797979') onMouseOver=View('797979')></td>
+<td bgcolor="7A7A7A" title="7A7A7A"onClick=Set('7A7A7A') onMouseOver=View('7A7A7A')></td>
+<td bgcolor="7B7B7B" title="7B7B7B"onClick=Set('7B7B7B') onMouseOver=View('7B7B7B')></td>
+<td bgcolor="7C7C7C" title="7C7C7C"onClick=Set('7C7C7C') onMouseOver=View('7C7C7C')></td>
+<td bgcolor="7D7D7D" title="7D7D7D"onClick=Set('7D7D7D') onMouseOver=View('7D7D7D')></td>
+<td bgcolor="7E7E7E" title="7E7E7E"onClick=Set('7E7E7E') onMouseOver=View('7E7E7E')></td>
+<td bgcolor="7F7F7F" title="7F7F7F"onClick=Set('7F7F7F') onMouseOver=View('7F7F7F')></td>
+</tr><tr>
+<td bgcolor="808080" title="808080"onClick=Set('808080') onMouseOver=View('808080')></td>
+<td bgcolor="818181" title="818181"onClick=Set('818181') onMouseOver=View('818181')></td>
+<td bgcolor="828282" title="828282"onClick=Set('828282') onMouseOver=View('828282')></td>
+<td bgcolor="838383" title="838383"onClick=Set('838383') onMouseOver=View('838383')></td>
+<td bgcolor="848484" title="848484"onClick=Set('848484') onMouseOver=View('848484')></td>
+<td bgcolor="858585" title="858585"onClick=Set('858585') onMouseOver=View('858585')></td>
+<td bgcolor="868686" title="868686"onClick=Set('868686') onMouseOver=View('868686')></td>
+<td bgcolor="878787" title="878787"onClick=Set('878787') onMouseOver=View('878787')></td>
+<td bgcolor="888888" title="888888"onClick=Set('888888') onMouseOver=View('888888')></td>
+<td bgcolor="898989" title="898989"onClick=Set('898989') onMouseOver=View('898989')></td>
+<td bgcolor="8A8A8A" title="8A8A8A"onClick=Set('8A8A8A') onMouseOver=View('8A8A8A')></td>
+<td bgcolor="8B8B8B" title="8B8B8B"onClick=Set('8B8B8B') onMouseOver=View('8B8B8B')></td>
+<td bgcolor="8C8C8C" title="8C8C8C"onClick=Set('8C8C8C') onMouseOver=View('8C8C8C')></td>
+<td bgcolor="8D8D8D" title="8D8D8D"onClick=Set('8D8D8D') onMouseOver=View('8D8D8D')></td>
+<td bgcolor="8E8E8E" title="8E8E8E"onClick=Set('8E8E8E') onMouseOver=View('8E8E8E')></td>
+<td bgcolor="8F8F8F" title="8F8F8F"onClick=Set('8F8F8F') onMouseOver=View('8F8F8F')></td>
+</tr><tr>
+<td bgcolor="909090" title="909090"onClick=Set('909090') onMouseOver=View('909090')></td>
+<td bgcolor="919191" title="919191"onClick=Set('919191') onMouseOver=View('919191')></td>
+<td bgcolor="929292" title="929292"onClick=Set('929292') onMouseOver=View('929292')></td>
+<td bgcolor="939393" title="939393"onClick=Set('939393') onMouseOver=View('939393')></td>
+<td bgcolor="949494" title="949494"onClick=Set('949494') onMouseOver=View('949494')></td>
+<td bgcolor="959595" title="959595"onClick=Set('959595') onMouseOver=View('959595')></td>
+<td bgcolor="969696" title="969696"onClick=Set('969696') onMouseOver=View('969696')></td>
+<td bgcolor="979797" title="979797"onClick=Set('979797') onMouseOver=View('979797')></td>
+<td bgcolor="989898" title="989898"onClick=Set('989898') onMouseOver=View('989898')></td>
+<td bgcolor="999999" title="999999"onClick=Set('999999') onMouseOver=View('999999')></td>
+<td bgcolor="9A9A9A" title="9A9A9A"onClick=Set('9A9A9A') onMouseOver=View('9A9A9A')></td>
+<td bgcolor="9B9B9B" title="9B9B9B"onClick=Set('9B9B9B') onMouseOver=View('9B9B9B')></td>
+<td bgcolor="9C9C9C" title="9C9C9C"onClick=Set('9C9C9C') onMouseOver=View('9C9C9C')></td>
+<td bgcolor="9D9D9D" title="9D9D9D"onClick=Set('9D9D9D') onMouseOver=View('9D9D9D')></td>
+<td bgcolor="9E9E9E" title="9E9E9E"onClick=Set('9E9E9E') onMouseOver=View('9E9E9E')></td>
+<td bgcolor="9F9F9F" title="9F9F9F"onClick=Set('9F9F9F') onMouseOver=View('9F9F9F')></td>
+</tr><tr>
+<td bgcolor="A0A0A0" title="A0A0A0"onClick=Set('A0A0A0') onMouseOver=View('A0A0A0')></td>
+<td bgcolor="A1A1A1" title="A1A1A1"onClick=Set('A1A1A1') onMouseOver=View('A1A1A1')></td>
+<td bgcolor="A2A2A2" title="A2A2A2"onClick=Set('A2A2A2') onMouseOver=View('A2A2A2')></td>
+<td bgcolor="A3A3A3" title="A3A3A3"onClick=Set('A3A3A3') onMouseOver=View('A3A3A3')></td>
+<td bgcolor="A4A4A4" title="A4A4A4"onClick=Set('A4A4A4') onMouseOver=View('A4A4A4')></td>
+<td bgcolor="A5A5A5" title="A5A5A5"onClick=Set('A5A5A5') onMouseOver=View('A5A5A5')></td>
+<td bgcolor="A6A6A6" title="A6A6A6"onClick=Set('A6A6A6') onMouseOver=View('A6A6A6')></td>
+<td bgcolor="A7A7A7" title="A7A7A7"onClick=Set('A7A7A7') onMouseOver=View('A7A7A7')></td>
+<td bgcolor="A8A8A8" title="A8A8A8"onClick=Set('A8A8A8') onMouseOver=View('A8A8A8')></td>
+<td bgcolor="A9A9A9" title="A9A9A9"onClick=Set('A9A9A9') onMouseOver=View('A9A9A9')></td>
+<td bgcolor="AAAAAA" title="AAAAAA"onClick=Set('AAAAAA') onMouseOver=View('AAAAAA')></td>
+<td bgcolor="ABABAB" title="ABABAB"onClick=Set('ABABAB') onMouseOver=View('ABABAB')></td>
+<td bgcolor="ACACAC" title="ACACAC"onClick=Set('ACACAC') onMouseOver=View('ACACAC')></td>
+<td bgcolor="ADADAD" title="ADADAD"onClick=Set('ADADAD') onMouseOver=View('ADADAD')></td>
+<td bgcolor="AEAEAE" title="AEAEAE"onClick=Set('AEAEAE') onMouseOver=View('AEAEAE')></td>
+<td bgcolor="AFAFAF" title="AFAFAF"onClick=Set('AFAFAF') onMouseOver=View('AFAFAF')></td>
+</tr><tr>
+<td bgcolor="B0B0B0" title="B0B0B0"onClick=Set('B0B0B0') onMouseOver=View('B0B0B0')></td>
+<td bgcolor="B1B1B1" title="B1B1B1"onClick=Set('B1B1B1') onMouseOver=View('B1B1B1')></td>
+<td bgcolor="B2B2B2" title="B2B2B2"onClick=Set('B2B2B2') onMouseOver=View('B2B2B2')></td>
+<td bgcolor="B3B3B3" title="B3B3B3"onClick=Set('B3B3B3') onMouseOver=View('B3B3B3')></td>
+<td bgcolor="B4B4B4" title="B4B4B4"onClick=Set('B4B4B4') onMouseOver=View('B4B4B4')></td>
+<td bgcolor="B5B5B5" title="B5B5B5"onClick=Set('B5B5B5') onMouseOver=View('B5B5B5')></td>
+<td bgcolor="B6B6B6" title="B6B6B6"onClick=Set('B6B6B6') onMouseOver=View('B6B6B6')></td>
+<td bgcolor="B7B7B7" title="B7B7B7"onClick=Set('B7B7B7') onMouseOver=View('B7B7B7')></td>
+<td bgcolor="B8B8B8" title="B8B8B8"onClick=Set('B8B8B8') onMouseOver=View('B8B8B8')></td>
+<td bgcolor="B9B9B9" title="B9B9B9"onClick=Set('B9B9B9') onMouseOver=View('B9B9B9')></td>
+<td bgcolor="BABABA" title="BABABA"onClick=Set('BABABA') onMouseOver=View('BABABA')></td>
+<td bgcolor="BBBBBB" title="BBBBBB"onClick=Set('BBBBBB') onMouseOver=View('BBBBBB')></td>
+<td bgcolor="BCBCBC" title="BCBCBC"onClick=Set('BCBCBC') onMouseOver=View('BCBCBC')></td>
+<td bgcolor="BDBDBD" title="BDBDBD"onClick=Set('BDBDBD') onMouseOver=View('BDBDBD')></td>
+<td bgcolor="BEBEBE" title="BEBEBE"onClick=Set('BEBEBE') onMouseOver=View('BEBEBE')></td>
+<td bgcolor="BFBFBF" title="BFBFBF"onClick=Set('BFBFBF') onMouseOver=View('BFBFBF')></td>
+</tr><tr>
+<td bgcolor="C0C0C0" title="C0C0C0"onClick=Set('C0C0C0') onMouseOver=View('C0C0C0')></td>
+<td bgcolor="C1C1C1" title="C1C1C1"onClick=Set('C1C1C1') onMouseOver=View('C1C1C1')></td>
+<td bgcolor="C2C2C2" title="C2C2C2"onClick=Set('C2C2C2') onMouseOver=View('C2C2C2')></td>
+<td bgcolor="C3C3C3" title="C3C3C3"onClick=Set('C3C3C3') onMouseOver=View('C3C3C3')></td>
+<td bgcolor="C4C4C4" title="C4C4C4"onClick=Set('C4C4C4') onMouseOver=View('C4C4C4')></td>
+<td bgcolor="C5C5C5" title="C5C5C5"onClick=Set('C5C5C5') onMouseOver=View('C5C5C5')></td>
+<td bgcolor="C6C6C6" title="C6C6C6"onClick=Set('C6C6C6') onMouseOver=View('C6C6C6')></td>
+<td bgcolor="C7C7C7" title="C7C7C7"onClick=Set('C7C7C7') onMouseOver=View('C7C7C7')></td>
+<td bgcolor="C8C8C8" title="C8C8C8"onClick=Set('C8C8C8') onMouseOver=View('C8C8C8')></td>
+<td bgcolor="C9C9C9" title="C9C9C9"onClick=Set('C9C9C9') onMouseOver=View('C9C9C9')></td>
+<td bgcolor="CACACA" title="CACACA"onClick=Set('CACACA') onMouseOver=View('CACACA')></td>
+<td bgcolor="CBCBCB" title="CBCBCB"onClick=Set('CBCBCB') onMouseOver=View('CBCBCB')></td>
+<td bgcolor="CCCCCC" title="CCCCCC"onClick=Set('CCCCCC') onMouseOver=View('CCCCCC')></td>
+<td bgcolor="CDCDCD" title="CDCDCD"onClick=Set('CDCDCD') onMouseOver=View('CDCDCD')></td>
+<td bgcolor="CECECE" title="CECECE"onClick=Set('CECECE') onMouseOver=View('CECECE')></td>
+<td bgcolor="CFCFCF" title="CFCFCF"onClick=Set('CFCFCF') onMouseOver=View('CFCFCF')></td>
+</tr><tr>
+<td bgcolor="D0D0D0" title="D0D0D0"onClick=Set('D0D0D0') onMouseOver=View('D0D0D0')></td>
+<td bgcolor="D1D1D1" title="D1D1D1"onClick=Set('D1D1D1') onMouseOver=View('D1D1D1')></td>
+<td bgcolor="D2D2D2" title="D2D2D2"onClick=Set('D2D2D2') onMouseOver=View('D2D2D2')></td>
+<td bgcolor="D3D3D3" title="D3D3D3"onClick=Set('D3D3D3') onMouseOver=View('D3D3D3')></td>
+<td bgcolor="D4D4D4" title="D4D4D4"onClick=Set('D4D4D4') onMouseOver=View('D4D4D4')></td>
+<td bgcolor="D5D5D5" title="D5D5D5"onClick=Set('D5D5D5') onMouseOver=View('D5D5D5')></td>
+<td bgcolor="D6D6D6" title="D6D6D6"onClick=Set('D6D6D6') onMouseOver=View('D6D6D6')></td>
+<td bgcolor="D7D7D7" title="D7D7D7"onClick=Set('D7D7D7') onMouseOver=View('D7D7D7')></td>
+<td bgcolor="D8D8D8" title="D8D8D8"onClick=Set('D8D8D8') onMouseOver=View('D8D8D8')></td>
+<td bgcolor="D9D9D9" title="D9D9D9"onClick=Set('D9D9D9') onMouseOver=View('D9D9D9')></td>
+<td bgcolor="DADADA" title="DADADA"onClick=Set('DADADA') onMouseOver=View('DADADA')></td>
+<td bgcolor="DBDBDB" title="DBDBDB"onClick=Set('DBDBDB') onMouseOver=View('DBDBDB')></td>
+<td bgcolor="DCDCDC" title="DCDCDC"onClick=Set('DCDCDC') onMouseOver=View('DCDCDC')></td>
+<td bgcolor="DDDDDD" title="DDDDDD"onClick=Set('DDDDDD') onMouseOver=View('DDDDDD')></td>
+<td bgcolor="DEDEDE" title="DEDEDE"onClick=Set('DEDEDE') onMouseOver=View('DEDEDE')></td>
+<td bgcolor="DFDFDF" title="DFDFDF"onClick=Set('DFDFDF') onMouseOver=View('DFDFDF')></td>
+</tr><tr>
+<td bgcolor="E0E0E0" title="E0E0E0"onClick=Set('E0E0E0') onMouseOver=View('E0E0E0')></td>
+<td bgcolor="E1E1E1" title="E1E1E1"onClick=Set('E1E1E1') onMouseOver=View('E1E1E1')></td>
+<td bgcolor="E2E2E2" title="E2E2E2"onClick=Set('E2E2E2') onMouseOver=View('E2E2E2')></td>
+<td bgcolor="E3E3E3" title="E3E3E3"onClick=Set('E3E3E3') onMouseOver=View('E3E3E3')></td>
+<td bgcolor="E4E4E4" title="E4E4E4"onClick=Set('E4E4E4') onMouseOver=View('E4E4E4')></td>
+<td bgcolor="E5E5E5" title="E5E5E5"onClick=Set('E5E5E5') onMouseOver=View('E5E5E5')></td>
+<td bgcolor="E6E6E6" title="E6E6E6"onClick=Set('E6E6E6') onMouseOver=View('E6E6E6')></td>
+<td bgcolor="E7E7E7" title="E7E7E7"onClick=Set('E7E7E7') onMouseOver=View('E7E7E7')></td>
+<td bgcolor="E8E8E8" title="E8E8E8"onClick=Set('E8E8E8') onMouseOver=View('E8E8E8')></td>
+<td bgcolor="E9E9E9" title="E9E9E9"onClick=Set('E9E9E9') onMouseOver=View('E9E9E9')></td>
+<td bgcolor="EAEAEA" title="EAEAEA"onClick=Set('EAEAEA') onMouseOver=View('EAEAEA')></td>
+<td bgcolor="EBEBEB" title="EBEBEB"onClick=Set('EBEBEB') onMouseOver=View('EBEBEB')></td>
+<td bgcolor="ECECEC" title="ECECEC"onClick=Set('ECECEC') onMouseOver=View('ECECEC')></td>
+<td bgcolor="EDEDED" title="EDEDED"onClick=Set('EDEDED') onMouseOver=View('EDEDED')></td>
+<td bgcolor="EEEEEE" title="EEEEEE"onClick=Set('EEEEEE') onMouseOver=View('EEEEEE')></td>
+<td bgcolor="EFEFEF" title="EFEFEF"onClick=Set('EFEFEF') onMouseOver=View('EFEFEF')></td>
+</tr><tr>
+<td bgcolor="F0F0F0" title="F0F0F0"onClick=Set('F0F0F0') onMouseOver=View('F0F0F0')></td>
+<td bgcolor="F1F1F1" title="F1F1F1"onClick=Set('F1F1F1') onMouseOver=View('F1F1F1')></td>
+<td bgcolor="F2F2F2" title="F2F2F2"onClick=Set('F2F2F2') onMouseOver=View('F2F2F2')></td>
+<td bgcolor="F3F3F3" title="F3F3F3"onClick=Set('F3F3F3') onMouseOver=View('F3F3F3')></td>
+<td bgcolor="F4F4F4" title="F4F4F4"onClick=Set('F4F4F4') onMouseOver=View('F4F4F4')></td>
+<td bgcolor="F5F5F5" title="F5F5F5"onClick=Set('F5F5F5') onMouseOver=View('F5F5F5')></td>
+<td bgcolor="F6F6F6" title="F6F6F6"onClick=Set('F6F6F6') onMouseOver=View('F6F6F6')></td>
+<td bgcolor="F7F7F7" title="F7F7F7"onClick=Set('F7F7F7') onMouseOver=View('F7F7F7')></td>
+<td bgcolor="F8F8F8" title="F8F8F8"onClick=Set('F8F8F8') onMouseOver=View('F8F8F8')></td>
+<td bgcolor="F9F9F9" title="F9F9F9"onClick=Set('F9F9F9') onMouseOver=View('F9F9F9')></td>
+<td bgcolor="FAFAFA" title="FAFAFA"onClick=Set('FAFAFA') onMouseOver=View('FAFAFA')></td>
+<td bgcolor="FBFBFB" title="FBFBFB"onClick=Set('FBFBFB') onMouseOver=View('FBFBFB')></td>
+<td bgcolor="FCFCFC" title="FCFCFC"onClick=Set('FCFCFC') onMouseOver=View('FCFCFC')></td>
+<td bgcolor="FDFDFD" title="FDFDFD"onClick=Set('FDFDFD') onMouseOver=View('FDFDFD')></td>
+<td bgcolor="FEFEFE" title="FEFEFE"onClick=Set('FEFEFE') onMouseOver=View('FEFEFE')></td>
+<td bgcolor="FFFFFF" title="FFFFFF"onClick=Set('FFFFFF') onMouseOver=View('FFFFFF')></td>
+</tr>
+<!-- <script>document.write(Text);</script> -->
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+#side {
+    width: 10em;
+    z-index: 2
+}
+
+#side li ul {
+	position: absolute;
+	left: 230px;
+	bottom: 0;
+	width: 200px;
+}
+
+#side li a.subMenu, #side ul li a.subMenu {
+	background-repeat: no-repeat;
+	background-image: url('../images/arrow_0.gif');
+	background-position: center right;
+}
+#side {
+	position: absolute;
+	z-index: 1;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	white-space: nowrap;
+}
+
+body>#side {
+	position: fixed;
+}
+
+#side ul {
+	position: relative;
+	z-index: 1002;
+	display: none;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#side ul.click {
+    display: block;
+    background-color: #666666;
+}
+#side ul.click li {
+    background-color: #087882;
+}
+#side li a.click {
+    background-color: #339999;
+	color: #FFFAB5;
+}
+
+#side ul li a.click {
+    background-color: #669999;
+	color: #FFFAB5;
+}
+
+#side li {
+	position: relative;
+	background:none;
+    z-index:1001;
+	padding: 0;
+	margin: 0;
+	color: #ffffff;
+	float: left;
+	width: 230px;
+	display: block;
+	font-size:13px;
+	font-weight:bold;
+}
+
+#side ul li a:hover {
+	background-color: #339988;
+	color: #FFFF00;
+}
+
+#side li a:hover {
+	background-color: #087882;
+	color: #FFFF00;
+}
+
+#side li a {
+    position: relative;
+    z-index: 1;
+    display: block;
+	padding: 8px;
+	margin: 0;
+	text-decoration: none;
+	color: #ffffff;
+}

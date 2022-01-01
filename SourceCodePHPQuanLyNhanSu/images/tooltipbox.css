@@ -1,0 +1,90 @@
+@charset "utf-8";
+#dhtmltooltip
+{
+	border: #666 2px solid;
+	padding: 5px;
+	font-size: 10pt;
+	z-index: 100;
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+	filter: alpha(opacity=50);
+	left: -300px; top:0px;
+	visibility: hidden;
+	font-family: Arial;
+	position: absolute;
+	background-color: #dfecfd;
+	width: 300px;
+	text-align:left;
+}
+#dhtmlpointer
+{
+	z-index: 101;
+	left: -300px; top:0px;
+	visibility: hidden;
+	position: absolute;
+}
+
+/*-- Div xổ ra tỉnh thành phố --*/
+#chooseCity {
+	width:141px;
+	position:absolute;
+	border:1px solid #244f94;
+	padding:10px;
+	background:#ffffec url(images/i_close.gif) no-repeat 98% 6px;
+	z-index: 100;
+	display:none;
+	background-color: #dfecfd;
+}
+
+#chooseCity .AllCity {
+	padding: 2px 0px 5px 0px;
+}
+
+#chooseCity .AllCity a {
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+}
+
+#chooseCity .AllCity a:hover {
+	text-decoration: underline;
+	color: #c00;
+}
+
+#chooseCity .Region {
+	font:700 13px;
+	color: #d34a00;
+	padding-bottom: 3px;
+}
+
+#chooseCity .RegionPanel {
+	width: 125px;
+	text-align: left;
+	float: left;
+}
+
+#chooseCity .RegionPanel .City {
+	padding: 2px;
+}
+
+#chooseCity .RegionPanel .City a {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	text-decoration: none;
+	color: #333;
+}
+
+#chooseCity .RegionPanel .City a:hover {
+	color: #c00;
+	text-decoration: underline;
+}
+
+hr { 
+	margin:3px 0px;
+	*margin: -4px 0px;
+	padding: 0px;
+	border: 1px dotted #D9DFEE;
+	height:1px;
+}

@@ -1,0 +1,86 @@
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN: 0px; COLOR: #393939; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+TABLE {
+	BORDER-COLLAPSE: collapse
+}
+.menu {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ffffff; LINE-HEIGHT: 25px; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+.submenu {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #336699; LINE-HEIGHT: 20px; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+.menu_footer {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #005bb6; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+.menu_footer:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #005bb6; LINE-HEIGHT: 20px; TEXT-DECORATION: underline
+}
+.hot_news {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #005bb6; TEXT-DECORATION: none
+}
+.hot_line {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff; HEIGHT: 18px; TEXT-DECORATION: none
+}
+.news_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #0672b5; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+.news_detail {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #0672b5; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-ALIGN: justify; TEXT-DECORATION: none
+}
+.news_bullet {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #267243; FONT-FAMILY: Verdana; TEXT-ALIGN: justify; TEXT-DECORATION: none
+}
+.news_bullet:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #267243; FONT-FAMILY: Verdana; TEXT-ALIGN: justify; TEXT-DECORATION: underline
+}
+.tab_act {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #ee1616; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.tab_ina {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; CURSOR: pointer; COLOR: #0672b5; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.chuongtrinh {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #dd3006; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+.chuyende_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #568e09; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+.div_adv {
+	Z-INDEX: 1;
+	WIDTH: 104px;
+	POSITION: absolute;
+	HEIGHT: 129px;
+	left: 2px;
+	top: -1px;
+}
+.calendar_header {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #f3c75f; TEXT-ALIGN: center
+}
+.calendar_day_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #0066cc; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #deebfe; TEXT-ALIGN: center
+}
+.calendar_item {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; CURSOR: default; FONT-FAMILY: Verdana; TEXT-ALIGN: center
+}
+.warning {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #990000; FONT-FAMILY: Verdana
+}
+.clsFooter {
+	FONT-SIZE: 11px; FONT-FAMILY: Verdana
+}
+.search_title {
+	FONT-WEIGHT: normal; FONT-SIZE: 15px; COLOR: #0672b5; FONT-FAMILY: Verdana; TEXT-DECORATION: underline
+}
+.search_count {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #005bb6; TEXT-DECORATION: none
+}
+.search_result {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #ffff55
+}
+.hayday {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: red; FONT-FAMILY: Verdana
+}
+.hayday1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #FF9999; FONT-FAMILY: Verdana
+}

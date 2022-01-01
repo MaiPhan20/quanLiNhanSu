@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML id=dlgChangeCase STYLE="width: 250px; height: 260px;">
+<head>
+<title>Calculator</title>
+<STYLE>
+.numbers {background-color:buttonface;color:blue;width:35px;height:27px;font-size:10px;}
+.operators {background-color:buttonface;color:red;width:35px;height:27px;font-size:10px;}
+.clear {background-color:buttonface;color:red;width:61px;height:27px;font-size:10px;}
+</STYLE>
+<script language=javascript>
+<!--//
+//script originally written by Jason J. Russo.
+//Modified by Luis Eufracio.
+
+function numbers(x) {
+var display= document.Calculator.display.value;
+var TheFunction = document.Calculator.TheFunction.value;
+var TheCheck = document.Calculator.results.value;
+if(document.Calculator.results.value == "0" && TheCheck.indexOf('.')=="-1") {
+document.Calculator.results.value = "";
+}
+
+if(display != "true") {
+document.Calculator.results.value=document.Calculator.results.value+x;
+} 
+else {
+document.Calculator.results.value=x;
+document.Calculator.display.value="";
+}
+}
+
+function add() {
+if(document.Calculator.TempNum.value){
+getIt();
+}
+document.Calculator.TheFunction.value='+';
+document.Calculator.display.value='true';
+document.Calculator.TempNum.value=document.Calculator.results.value;
+}
+
+function subtract() {
+if(document.Calculator.TempNum.value){
+getIt();
+}
+document.Calculator.TheFunction.value='-';
+document.Calculator.display.value='true';
+document.Calculator.TempNum.value=document.Calculator.results.value;
+}
+
+function multiply() {
+if(document.Calculator.TempNum.value){
+getIt();
+}
+document.Calculator.TheFunction.value='*';
+document.Calculator.display.value='true';
+document.Calculator.TempNum.value=document.Calculator.results.value;
+}
+
+function divide() {
+if(document.Calculator.TempNum.value){
+getIt();
+ }
+document.Calculator.TheFunction.value='/';
+document.Calculator.display.value='true';
+document.Calculator.TempNum.value=document.Calculator.results.value;
+}
+
+function reciprocal() {document.Calculator.results.value=1/eval(document.Calculator.results.value);}
+
+function percentage() {
+var whatdo = document.Calculator.TheFunction.value;
+var percnumber = document.Calculator.results.value / 100;
+if(document.Calculator.TempNum.value){document.Calculator.results.value =  eval(document.Calculator.TempNum.value)*percnumber;} 
+else {document.Calculator.results.value = "0";}
+document.Calculator.TempNum.value="";
+document.Calculator.TheFunction.value="";
+}
+
+function squareRoot() {document.Calculator.results.value=Math.sqrt(document.Calculator.results.value);}
+
+function switchSigns() {
+var xy = document.Calculator.results.value;
+if(xy == "0"){return false;}
+if(xy.indexOf("-") == "0") {xy = xy.substring(1,xy.length);} 
+else {xy = "-" + xy;}
+document.Calculator.results.value = xy;
+}
+
+function backspace() {
+if(document.Calculator.results.value=="0") {return false; }//ignore if zero already.
+var numlength = document.Calculator.results.value;//length of the text field
+var newresult = numlength.length-1;//subtract one.
+document.Calculator.results.value = numlength.substring(0,newresult);//set to new value -1;
+if(document.Calculator.results.value=="") {document.Calculator.results.value ="0";}//set to zero if nothing left.
+}
+
+function clearDisplay() {
+document.Calculator.TempNum.value="";
+document.Calculator.results.value="0";
+document.Calculator.TheFunction.value="";
+}
+
+function getIt() {
+if(document.Calculator.TempNum.value==".") {
+return false;
+}
+var whatdo = document.Calculator.TheFunction.value;
+if(whatdo=="+"){ 
+document.Calculator.results.value = eval(document.Calculator.results.value) + eval(document.Calculator.TempNum.value);
+}
+else if(whatdo=="-"){
+document.Calculator.results.value =  eval(document.Calculator.TempNum.value)-eval(document.Calculator.results.value);
+}
+else if(whatdo=="*"){
+document.Calculator.results.value = eval(document.Calculator.results.value) * eval(document.Calculator.TempNum.value);
+}
+else if(whatdo=="/"){
+document.Calculator.results.value = eval(document.Calculator.TempNum.value)/eval(document.Calculator.results.value) ;
+}
+document.Calculator.TempNum.value="";
+document.Calculator.TheFunction.value="";
+}
+
+function Init(){
+highlightedText = window.dialogArguments;
+if (isNaN(highlightedText)){
+alert(highlightedText + " is not a number. Calculator will close");
+window.close();
+}
+
+else if(highlightedText!=""){
+document.Calculator.results.value = highlightedText;
+}
+else{
+document.Calculator.results.value ="0";
+}
+}
+
+function returnSelected(){
+var validInput = parseInt(document.Calculator.results.value);
+text=document.Calculator.results.value;
+//regex matches numbers only with or without floating point
+if (text.search(/^((\+|-)\d)?\d*(\.\d+)?$/) != -1)
+{
+	window.returnValue = text;
+	window.close();
+	}
+	else{alert("Invalid Input");}
+}
+//-->
+</script>
+<SCRIPT defer>
+
+function _KeyStrokes() {
+if (event.keyCode == 27) { window.close(); return; }
+if (window.event.keyCode == 13){returnSelected();} 
+if (window.event.keyCode){return false;}
+}
+document.body.onkeypress = _KeyStrokes;
+</SCRIPT>
+</head>
+<body style="background: threedface; color: windowtext;" onload="Init();">
+<form name=Calculator>
+<input type=hidden name=TheFunction value="">
+<input type=hidden name=TempNum value="">
+<input type=hidden name=display value="">
+<input type=hidden name=Memo value="0">
+<table style="border-width:2px;" align="center">
+<tr>
+<td><INPUT TYPE="text" NAME="results" VALUE="0" SIZE="33" STYLE="width:226px; text-align: right;"></td></tr>
+<tr><td>
+<input type=text name=memry style="background-color:buttonface;height:27px; width:35px" size=2 unselectable="on">
+<input type=button value="Backspace" CLASS="clear" OnClick="backspace()"> 
+<input type=button value="CE" CLASS="clear" OnClick="clearDisplay()"> 
+<input type=button value=" C " CLASS="clear" OnClick="clearDisplay()">
+</td></tr>
+<tr><td>
+<input type=button CLASS="operators" value="MC" OnClick="document.Calculator.memry.value=' ',document.Calculator.Memo.value='0'">   
+<input type=button value="7" CLASS="numbers" OnClick="numbers(7)"> 
+<input type=button value="8" CLASS="numbers" OnClick="numbers(8)"> 
+<input type=button value="9" CLASS="numbers" OnClick="numbers(9)"> 
+<input type=button CLASS="operators" value="/" OnClick="divide()">
+<input type=button CLASS="numbers" value="sqrt" OnClick="squareRoot()">
+</td></tr>
+<tr><td>
+<input type=button CLASS="operators" value="MR" OnClick="document.Calculator.results.value=document.Calculator.Memo.value">   
+<input type=button value="4" CLASS="numbers" OnClick="numbers(4)"> 
+<input type=button value="5" CLASS="numbers" OnClick="numbers(5)"> 
+<input type=button value="6" CLASS="numbers" OnClick="numbers(6)"> 
+<input type=button CLASS="operators" value="*" OnClick="multiply()">
+<input type=button CLASS="numbers" value="%" OnClick="percentage()">
+</td></tr>
+<tr><td>
+<input type=button CLASS="operators" value="MS">   
+<input type=button value="1" CLASS="numbers" OnClick="numbers(1)"> 
+<input type=button value="2" CLASS="numbers" OnClick="numbers(2)"> 
+<input type=button value="3" CLASS="numbers" OnClick="numbers(3)"> 
+<input type=button CLASS="operators" value=" - " OnClick="subtract()">
+<input type=button CLASS="numbers" value=" 1/x " OnClick="reciprocal()">
+</td></tr>
+<tr><td>
+<input type=button CLASS="operators" value=" M+ " OnClick="document.Calculator.memry.value=' M',document.Calculator.Memo.value=document.Calculator.results.value;">   
+<input type=button value="0" CLASS="numbers" OnClick="numbers(0)"> 
+<input type=button value="+/-" CLASS="numbers" OnClick="switchSigns() "> 
+<input type=button value="." CLASS="numbers" OnClick="numbers('.')"> 
+<input type=button CLASS="operators" value="+" OnClick="add()">
+<input type=button CLASS="numbers" value="=" OnClick="getIt()">
+</td></tr>
+<tr><td align="center">
+<HR>
+<input type="button" value=" OK " onClick="getIt();returnSelected();">
+<input type="button" value="Cancel" onClick="window.close()">
+</td></tr>
+</table>
+</form>
+</body>
+</html>

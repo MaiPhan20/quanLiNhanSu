@@ -1,0 +1,117 @@
+BODY {
+	COLOR: #323232; FONT-FAMILY: Tahoma, Arial, Verdana,  Helvetica, Sans-serif; FONT-SIZE: 11px; TEXT-ALIGN: justify; SCROLLBAR-FACE-COLOR: #a5a5a5; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #d3d3d3; SCROLLBAR-3DLIGHT-COLOR: #d3d3d3; SCROLLBAR-ARROW-COLOR: #3f4169; SCROLLBAR-TRACK-COLOR: #dbdbdb; SCROLLBAR-DARKSHADOW-COLOR: #9a9a9a
+}
+TD {
+	COLOR: #323232; FONT-SIZE: 12px; FONT-FAMILY: Tahoma, Arial, Verdana,  Helvetica, Sans-serif; TEXT-ALIGN: justify
+}
+.texttrangbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textxambold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #6a6a69; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.nenxanh1 {
+	BACKGROUND-COLOR: #b5d6f7
+}
+.nenxanh2 {
+	BACKGROUND-COLOR: #3174a5
+}
+.nenxam2 {
+	BACKGROUND-COLOR: #bdbdbe
+}
+.nenxanh3 {
+	BACKGROUND-COLOR: #4b9be0
+}
+.nenxanh4 {
+	BACKGROUND-COLOR: #035297
+}
+.texttrangbold:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffcc00; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.nenxam3 {
+	BACKGROUND-COLOR: #d6d6ce
+}
+.texttrang11 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textxam12 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #6a737b; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.nenxanh5 {
+	BACKGROUND-COLOR: #d3f0f8
+}
+.nenxanh6 {
+	BACKGROUND-COLOR: #f1fafc
+}
+.textxanhbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #0a3457; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textxanhbold_ {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #0a3457; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textxanhbold2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #4f7592; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textxam11 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #6a737b; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.borderxanh3 {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BORDER-BOTTOM: #cccccc 1px solid
+}
+.nenxam4 {
+	BACKGROUND-COLOR: #cccccc
+}
+.nenxam5 {
+	BACKGROUND-COLOR: #eaeaea
+}
+.textxanhbold2:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff9900; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textcam10 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.texttrangboldunder {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.texttrangboldunder:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ccff00; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.texttrang12 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textxamdam12 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textxanhbold3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #3399ff; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textxanhbold3:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #0066cc; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.textxam12:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #0099ff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textdobold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #cc0000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textxanh12 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #003399; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.textdo12 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #cc0000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.NSDivCenter {
+	BORDER-RIGHT: #6bAAef 1px solid; BORDER-TOP: #6bAAef 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #6bAAef 1px solid; BORDER-BOTTOM: #6bAAef 1px solid
+}
+.NSDivCenter1 {
+	BORDER-RIGHT: #6bAAef 1px solid; BORDER-TOP: #6bAAef 1px solid; Z-INDEX: 9999; BACKGROUND: #c0c0c0; BORDER-LEFT: #6bAAef 1px solid; BORDER-BOTTOM: #6bAAef 1px solid
+}
+.selectbox {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: tahoma, verdana, arial, sans-serif
+}
+.box{
+	border: 1px solid #202426;
+	FONT-FAMILY: Tahoma, Verdana;
+	color:#202426;
+	font-size:8pt;
+}

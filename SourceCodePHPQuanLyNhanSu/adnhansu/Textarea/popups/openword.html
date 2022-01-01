@@ -1,0 +1,57 @@
+<html style='width:350px; Height: 140px;'>
+<head>
+<title>Mở một file văn bản</title>
+<style> html, body, button, div, input, select{ font-family: MS Shell Dlg; font-size: 8pt;}; </style>
+
+<SCRIPT DEFER>
+<!--
+function _CloseOnEsc() {if (event.keyCode == 27) { window.close(); return; }}
+document.body.onkeypress = _CloseOnEsc;
+//-->
+</SCRIPT>
+<SCRIPT>
+function openword (){
+var pathlength = document.all.filepath.value.length - 4;
+var pathisdoc = document.all.filepath.value.lastIndexOf(".doc");
+if (pathlength !== pathisdoc){
+alert ("File nay khong dung dinh dang. Ban phai chon file dang *.doc");
+}
+else {
+var file = unescape( document.set.filepath.value )
+var word 
+              try {
+                   word=new ActiveXObject('Word.Application.9') // word 2k
+                   } catch (e) {
+              try {
+                   word=new ActiveXObject('Word.Application.8') // word 97
+                   } catch (e) {
+              try {
+                   word=new ActiveXObject('Word.Application.7') // word 95
+                   } catch (e) {
+          }
+         }
+         }
+//WordPad.Document
+//word.Visible=true;
+word.Documents.Open(file);
+word.Document(file).Range(0).Copy();
+	  
+//word.ActiveDocument.SaveAs("H:\Mydoc.doc", 4);
+//word.Options.PrintBackground = false;
+//word.ActiveDocument.PrintOut();	  
+word.Quit();
+window.close();
+}
+} 
+</SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body style="background: threedface; color: windowtext;" margin: 30px; >
+<FORM METHOD="post" NAME="set" ID="set">
+<BR>
+&nbsp;&nbsp;<IMG SRC="../images/ed_word.gif" ALT="" WIDTH="18" HEIGHT="18" BORDER="0" ALIGN="absmiddle">M&#7903; 1 file v&#259;n b&#7843;n
+<DIV ALIGN="center"><INPUT TYPE="file" NAME="filepath" SIZE="30">
+<P><INPUT TYPE="button" NAME="btnOK" VALUE="Open" onclick="openword();">&nbsp;&nbsp;<INPUT TYPE="button" NAME="Cancel" VALUE="Cancel" onclick="window.close();"></DIV>
+</FORM>
+</body>
+</html>

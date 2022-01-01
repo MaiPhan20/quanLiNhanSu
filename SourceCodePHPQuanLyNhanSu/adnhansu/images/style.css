@@ -1,0 +1,493 @@
+Customizing STYLE .h1 {
+	FONT-SIZE: 14px; COLOR: #333333; LINE-HEIGHT: 16px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif; font-wight: bold
+}
+.con {
+	FONT-SIZE: 11px; COLOR: #333333; LINE-HEIGHT: 16px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.bold {
+	FONT-SIZE: 11px; COLOR: #333333; LINE-HEIGHT: 16px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif; font-wight: bold
+}
+.p {
+	FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.input1 {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #666666 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
+.news {
+	FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: verdana, geneva, helvetica, arial, sans-serif
+}
+.newstitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: verdana, geneva, helvetica, arial, sans-serif
+}
+.date {
+	FONT-SIZE: 9px; COLOR: #666666; FONT-FAMILY: verdana, geneva, helvetica, arial, sans-serif
+}
+.LinkBold {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #0014a0; FONT-FAMILY: verdana, geneva, helvetica, arial, sans-serif
+}
+
+Reserved Tag STYLE BODY {
+	FONT-SIZE: 11px; COLOR: #333333; LINE-HEIGHT: 15px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+P {
+	FONT-SIZE: 12px; COLOR: #333333; LINE-HEIGHT: 15px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+TD {
+	FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"
+}
+A:link {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 11px; COLOR: #7D1100; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+A.p:link {
+	FONT-SIZE: 11px; COLOR: #ff00ff; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+A.p:visited {
+	FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+A.p:hover {
+	FONT-SIZE: 12px; COLOR: #ff6633; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif,seoul; TEXT-DECORATION: underline
+}
+.HNDivCenter {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc  1px solid; Z-INDEX: #6699cc ; BACKGROUND: #ffffff; BORDER-LEFT: #6699cc  1px solid; BORDER-BOTTOM: #6699cc 0 1px solid
+}
+.copy {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: verdana, geneva, helvetica, arial, sans-serif
+}
+.CopySmall {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Tahoma, geneva, helvetica, arial, sans-serif
+}
+.LeadFront {
+	COLOR: #000000; FONT-FAMILY: 'Arial'; FONT-SIZE: 8pt; TEXT-DECORATION: none
+}
+.Time {
+	FONT-SIZE: 8pt; COLOR: #808080; FONT-FAMILY: 'Verdana'; TEXT-DECORATION: none
+}
+.TimeW {
+	FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: 'Verdana'; TEXT-DECORATION: none
+}
+.Time:hover {
+	FONT-SIZE: 8pt; COLOR: #800040; FONT-FAMILY: 'Verdana'; TEXT-DECORATION: underline
+}
+.Title {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #b60000; FONT-FAMILY: 'Times New Roman'
+}
+.contentfont {
+	COLOR: #000000; FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+.contentfont A {
+	COLOR: #000000; FONT-SIZE: 11px; TEXT-DECORATION: underline
+}
+.contentfont A:hover {
+	FONT-SIZE: 11px; TEXT-DECORATION: underline
+}
+.contentfont1 {
+	COLOR: #000000; FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+.contentfont1 A {
+	COLOR: #000000; FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+.contentfont1 A:hover {
+	FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+.regborder {
+	BACKGROUND-COLOR: #ffffff; BORDER-BOTTOM: #999999 1px dotted; BORDER-LEFT: #999999 1px dotted; BORDER-RIGHT: #999999 1px dotted; BORDER-TOP: #999999 1px dotted
+}
+.text-red-bold {
+	COLOR: #ff0000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px; TEXT-DECORATION: none
+}
+.creg1 {
+	BACKGROUND-COLOR: #0082d6; COLOR: #ffffff; FONT-WEIGHT: bold
+}
+.creg2 {
+	BACKGROUND-COLOR: #fafafa
+}
+.creg3 {
+	BACKGROUND-COLOR: #f4f4f4
+}
+.creg4 {
+	BACKGROUND-COLOR: #ffffff
+}
+.creg5 {
+	BACKGROUND-COLOR: #999999
+}
+.border {
+	BORDER-BOTTOM: #999999 1px solid; BORDER-LEFT: #999999 1px solid; BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid
+}
+.Deltd {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: red; FONT-FAMILY: Arial, Tahoma
+}
+.leftbox_news {
+	BORDER-RIGHT: #eaac59 1px solid; BORDER-TOP: #f8e8c1 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #eaac59 1px solid; COLOR: #002443; BORDER-BOTTOM: #eaac59 1px solid; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; BACKGROUND-COLOR: #f8d798; TEXT-DECORATION: none
+}
+.leftbox_news A:link {
+	FONT-SIZE: 9pt; COLOR: #784700; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.leftbox_news A:visited {
+	FONT-SIZE: 9pt; COLOR: #a66410; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.leftbox_news A:hover {
+	FONT-SIZE: 9pt; COLOR: #a66410; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.leftbox_news A:active {
+	FONT-SIZE: 9pt; COLOR: #a63d10; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.leftbox {
+	BORDER-RIGHT: #3184bd 1px solid; BORDER-TOP: #3184bd 0px solid; FONT-SIZE: 8pt; BORDER-LEFT: #3184bd 1px solid; BORDER-BOTTOM: #3184bd 1px solid; FONT-FAMILY: arial
+}
+.leftbox_header {
+	BORDER-RIGHT: #3184bd 3px double; BORDER-TOP: #3184bd 3px double; FONT-WEIGHT: bold; FONT-SIZE: 9pt; BORDER-LEFT: #3184bd 3px double; COLOR: #fff; BORDER-BOTTOM: #3184bd 3px double; FONT-FAMILY: verdana, Arial, tahoma, "times new roman"; BACKGROUND-COLOR: #3184bd
+}
+select       { font-family: Verdana; font-size: 8pt; 
+}
+.rightbox_news {
+	BORDER-RIGHT: #895b11 1px solid; BORDER-TOP: #cdae64 1px solid; FONT-WEIGHT: bolder; BORDER-LEFT: #895b11 1px solid; BORDER-BOTTOM: #895b11 1px solid; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; BACKGROUND-COLOR: #be9b49; TEXT-DECORATION: none
+}
+.rightbox_news A:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: white; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular; TEXT-DECORATION: none
+}
+.rightbox_news A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #e4ffe6; TEXT-DECORATION: none
+}
+.rightbox_news A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffec6a; TEXT-DECORATION: none
+}
+.rightbox_news A:active {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffec6a; TEXT-DECORATION: none
+}
+
+.HeadEntertainment {
+	FONT-SIZE: 7pt; COLOR: #ffffff; FONT-FAMILY: Verdana; TEXT-DECORATION: none
+}
+.EnterSmall {
+	FONT-SIZE: 8pt; COLOR: #dcf075; FONT-FAMILY: 'Arial'; TEXT-DECORATION: none
+}
+.EnterSmall:visited {
+	COLOR: #dcf075; TEXT-DECORATION: none
+}
+.butstyle {
+	BORDER-RIGHT: #b6b6b6 1px solid; BORDER-TOP: #b6b6b6 1px solid; FONT-SIZE: 8pt; BACKGROUND-IMAGE: url(images/heade1rbg.gif); BORDER-LEFT: #b6b6b6 1px solid; COLOR: #000000; BORDER-BOTTOM: #b6b6b6 1px solid; FONT-FAMILY: Tahoma, Verdana;FONT-SIZE: 9pt; BACKGROUND-COLOR: #eeeeee
+}
+.txtstyle {
+	BORDER-TOP-WIDTH: 1px; FONT-WEIGHT: normal; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 8pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; COLOR: #000000; BORDER-TOP-COLOR: #000000; FONT-FAMILY: Arial, Verdana; BACKGROUND-COLOR: #ffffff; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+.dropshadow{
+	FONT-SIZE: 11px; COLOR: #ff6600; FILTER: dropshadow(color=#FAFAFA, offx=1.3, offy=1.3, positive=true); HEIGHT: 7px
+}
+.LoadBox               { Background-image:url("images/Loading.gif"); background-repeat: no-repeat; background-attachment:fixed; BACKGROUND-POSITION:center;
+} 
+.OTitleRightSmall {
+	FONT-SIZE: 8pt; COLOR: darkblue; FONT-FAMILY: Arial
+}
+.Allbum {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Tahoma
+}
+.copyright {
+	FONT-SIZE: 11px; COLOR: #ffffff; TEXT-ALIGN: left
+}
+.textlink {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-ALIGN: left
+}
+.textxanhbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #0a3457; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.white {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #0a3457; FONT-FAMILY: Tahoma, Helvetica, sans-serif
+}
+.menuleft {
+	PADDING-RIGHT: 7px; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 7px; BORDER-BOTTOM: #E8E8E8 1px solid; BACKGROUND-COLOR: #f8f8f8
+}
+.TIEUDETINTUC {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; TEXT-TRANSFORM: uppercase; COLOR: #000000; BORDER-BOTTOM: #c80000 1px solid; FONT-FAMILY: Arial,Tahoma,Verdana
+}
+LI.TINTUC {
+	COLOR: #ff9203; LIST-STYLE-TYPE: square
+}
+.lyricname {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #cc0000; FONT-FAMILY: Tahoma, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+
+.Shop {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: 'Verdana'; TEXT-DECORATION: none
+}
+
+.textdenbold {
+	FONT-SIZE: 10px; COLOR: #000000; TEXT-ALIGN: center
+}
+.HNDivCenter {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #6699cc 1px solid; BORDER-BOTTOM: #6699cc 1px solid
+}
+.DetailHeader {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #6699cc 1px solid; BORDER-BOTTOM: #6699cc 1px solid
+}
+.DetailDetail {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid;FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Tahoma
+}
+.textmobile {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.texgallerycontent {
+	PADDING-LEFT: 1px; FONT-WEIGHT: normal; FONT-SIZE: 11px
+}
+.UpdatedSubject {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt;  COLOR: #C40000; FONT-FAMILY: Arial
+}
+.UpdatedSubjectBig {
+	FONT-WEIGHT: bold; FONT-SIZE: 8.5pt; COLOR: #fe7003; FONT-FAMILY: Arial
+}
+.UpdateLead {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial
+}
+A.chitiet:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #000000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #000000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+
+
+A.chitiet2:link {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet2:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet2:hover {
+	FONT-SIZE: 9pt; COLOR: #ff0000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+
+A.chitiet3:link {
+	FONT-SIZE: 10pt; COLOR: #FF4000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet3:visited {
+	FONT-SIZE: 10pt; COLOR: #FF4000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet3:hover {
+	FONT-SIZE: 10pt; COLOR: #00C400; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet4:link {
+	FONT-SIZE: 8pt; COLOR: #FF4000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet4:visited {
+	FONT-SIZE: 8pt; COLOR: #FF4000; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet4:hover {
+	FONT-SIZE: 8pt; COLOR: #008800; FONT-FAMILY: Tahoma; TEXT-DECORATION: none
+}
+A.chitiet5:link {
+	FONT-SIZE: 9pt; COLOR: #525252; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+A.chitiet5:visited {
+	FONT-SIZE: 9pt; COLOR: #525252; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+A.chitiet5:hover {
+	FONT-SIZE: 9pt; COLOR: #FF4000; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+.clsTestQuestion {
+	FONT-SIZE: 10pt; COLOR: #686868; FONT-STYLE: italic; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+.clsTestAnswer {
+	FONT-SIZE: 10pt; COLOR: #000000; LINE-HEIGHT: 140%; FONT-FAMILY: Arial
+}
+.clsTestResult {
+	FONT-SIZE: 10pt; COLOR: #3b3b3b; LINE-HEIGHT: 140%; FONT-FAMILY: Arial
+}
+.clsTextbox {
+	BORDER-RIGHT: #a4b97f 1px solid; BORDER-TOP: #a4b97f 1px solid; MARGIN-TOP: 1pt; FONT-WEIGHT: 700; FONT-SIZE: 8pt; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-IMAGE: url(/Images/textbackground.gif); BORDER-LEFT: #a4b97f 1px solid; COLOR: black; BORDER-BOTTOM: #a4b97f 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Tahoma; HEIGHT: 20px; TEXT-ALIGN: left
+}
+.clsTextArea {
+	BORDER-RIGHT: #a4b97f 1px solid; BORDER-TOP: #a4b97f 1px solid; MARGIN-TOP: 1pt; FONT-SIZE: 10pt; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-IMAGE: url(/Images/textbackground.gif); BORDER-LEFT: #a4b97f 1px solid; COLOR: black; BORDER-BOTTOM: #a4b97f 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Arial; HEIGHT: 20px; TEXT-ALIGN: left
+}
+.Gallery_border {
+	BORDER-RIGHT: #BADA1E 1px solid; BORDER-TOP: #BADA1E 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #BADA1E 1px solid; BORDER-BOTTOM: #BADA1E 1px solid
+}
+.vote_border {
+	BORDER-RIGHT: #CDCED1 1px solid; BORDER-TOP: #CDCED1 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #CDCED1 1px solid; BORDER-BOTTOM: #CDCED1 1px solid
+}
+.vote_images {
+	BORDER-RIGHT: #B97B00 1px solid; BORDER-TOP: #B97B00 1px solid; Z-INDEX: 9999; BACKGROUND: #ffffff; BORDER-LEFT: #B97B00 1px solid; BORDER-BOTTOM: #B97B00 1px solid
+}
+.Text {
+	COLOR: #ffffff; FONT-SIZE: 10pt; TEXT-DECORATION: none
+}
+.Text_2 {
+	FONT-SIZE: 10pt; TEXT-DECORATION: none
+}
+.News_diachi {
+	BORDER-RIGHT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid; Z-INDEX: 9999; BACKGROUND: #F6F6F6; BORDER-LEFT: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid
+}
+.Diachi_camnhan {
+	FONT-SIZE: 8pt; COLOR: #545454; TEXT-DECORATION: none
+}
+.number {
+	FONT-SIZE: 8pt; COLOR: #FF0000; TEXT-DECORATION: none
+}
+/*===================css phan quang cao ben trai===================*/
+#main_listad{ width: 160px;	
+	float:left;
+	background-position:top left;
+	margin-top:6px;
+	border-left: 1px solid #a4aab0;
+	border-right: 1px solid #a4aab0;
+	border-bottom: 1px solid #a4aab0;
+	border-top: 1px solid #a4aab0;	
+	text-align:center;
+	padding: 7px 0px 7px 0px;
+}
+/*----------------- css danh cho phan quang cao -----------------------*/
+.title_ads{
+	font-size: 12px;
+	color: #000000;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.border_ads_1 {
+	border: 1px solid #a4aab0;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+.border_ads {
+	border: 1px solid #a4aab0;
+	padding: 3px;
+	text-align: center;
+	vertical-align: middle;
+}
+.border_ads2 {
+	padding: 5px;
+	border-right: 1px solid #a4aab0;
+	border-bottom: 1px solid #a4aab0;
+	border-left: 1px solid #a4aab0;
+	text-align: center;
+	vertical-align: middle;
+}
+.bg_ads{
+	background-color: #a4aab0;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left:1px;
+	padding-top:0px;
+}
+.bg_ads_white{
+	background-color: #FFFFFF;
+}
+.bg_t
+{
+border-right: 1px solid #a4aab0;
+	border-left: 1px solid #a4aab0;
+	border-top:1px solid #a4aab0;
+}
+.bg_t1
+{	border-bottom:1px solid #a4aab0;
+	padding-bottom:4px;
+	padding-top:4px;
+}
+
+.bg_ads_white_add{
+	border-top: 1px solid #a4aab0;
+}
+.bg_ads_sub{
+	background-color: #FFFFFF;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px;
+	border-top: 1px solid #666666;
+}
+.bg_ads_sub_left{
+	background-color: #FFFFFF;
+	text-align: center;
+	vertical-align: middle;
+	padding-top:4px;
+	padding-bottom:4px;
+	border-top: 1px solid #a4aab0;
+}
+.bg_ads_sub_add{
+	background-color: #FFFFFF;
+	border-left: 1px solid #a4aab0;
+	border-top: 1px solid #a4aab0;
+	text-align: center;
+	vertical-align: middle;
+	padding-top:4px;
+	padding-bottom:5px;
+	padding-left:2px;
+	padding-right:2px;
+	border-top: 0px solid #a4aab0;
+}
+.space_height_5{
+	font-size: 1px;
+	height: 5px;
+}
+.space_height_15{
+	font-size: 1px;
+	height: 15px;
+}
+/*----------------- end css danh cho phan quang cao -----------------------*/
+.button_style {
+	BORDER-RIGHT: #cdcdcd 0px solid; PADDING-RIGHT: 2px; BORDER-TOP: #cdcdcd 0px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: #cdcdcd 0px solid; CURSOR: hand; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: #cdcdcd 0px solid; BACKGROUND-COLOR: #2859a6
+}
+.button_style_hover {
+	BORDER-RIGHT: #6e6e6e 0px solid; PADDING-RIGHT: 2px; BORDER-TOP: #6e6e6e 0px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; BORDER-LEFT: #6e6e6e 0px solid; CURSOR: hand; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: #6e6e6e 0px solid; BACKGROUND-COLOR: #438bfb
+}
+.dropshadow{
+	FONT-SIZE: 12px; COLOR: #FFFFFF; FILTER: dropshadow(color=#460069, offx=1.4, offy=1.4, positive=true); HEIGHT: 9px; FONT-FAMILY: Tahoma, Verdana
+}
+.bg_number{ background-image:url("bg_number.gif"); width:14px; background-repeat:no-repeat; float:left; padding-right:5px; text-align:center; color:#FFFFFF; font-weight:bold; font-size:11px;
+}
+.sidebox-input-text {
+	BORDER-RIGHT: #8fb1da 1px solid; BORDER-TOP: #8fb1da 1px solid; BORDER-LEFT: #8fb1da 1px solid; COLOR: #333333; BORDER-BOTTOM: #8fb1da 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.sidebox-title {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; TEXT-TRANSFORM: uppercase; COLOR: #ffffff; FONT-FAMILY: tahoma, arial, verdana, sans-serif
+}
+.swiftfieldset {
+	BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 4px; MARGIN-BOTTOM: 6px; PADDING-BOTTOM: 4px; BORDER-LEFT: #cccccc 1px solid; COLOR: #267ddc; PADDING-TOP: 4px; BORDER-BOTTOM: #cccccc 1px solid; moz-border-radius: 4px 4px 4px 4px
+}
+.swiftfieldset {
+	FONT: 11px Verdana, Tahoma
+}
+.swiftfieldset TD {
+	FONT: 11px Verdana, Tahoma
+}
+.swiftfieldset P {
+	FONT: 11px Verdana, Tahoma
+}
+.swiftfieldset LI {
+	FONT: 11px Verdana, Tahoma
+}
+/*----------------- css cho Thong tin can biet -----------------------*/
+.td_R_B {
+	BORDER-RIGHT: #e4e4e4 1px solid; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: #e4e4e4 1px solid
+}
+.td_B {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 11px; BORDER-LEFT: medium none; COLOR: #000000; BORDER-BOTTOM: #e4e4e4 1px solid; FONT-FAMILY: tahoma; TEXT-DECORATION: none
+}
+.HStock {
+	FONT-SIZE: 10pt; BACKGROUND: #333333; COLOR: #f7ff31; FONT-FAMILY: 'Arial'; TEXT-ALIGN: center
+}
+.SStock {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #333333; FONT-FAMILY: 'Arial'; TEXT-ALIGN: left
+}
+.VStock {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: 'Arial'; TEXT-ALIGN: right
+}
+.YStock {
+	FONT-SIZE: 10pt; BACKGROUND: #999999; COLOR: #f7ff31; FONT-FAMILY: 'Arial'; TEXT-ALIGN: right
+}
+.RStock {
+	FONT-SIZE: 10pt; BACKGROUND: #999999; COLOR: #ff0000; FONT-FAMILY: 'Arial'; TEXT-ALIGN: right
+}
+.GStock {
+	FONT-SIZE: 10pt; BACKGROUND: #999999; COLOR: #00ff00; FONT-FAMILY: 'Arial'; TEXT-ALIGN: right
+}
+/*----------------- end css cho Thong tin can biet -----------------------*/
